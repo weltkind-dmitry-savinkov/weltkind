@@ -1,0 +1,157 @@
+////////////////////////////////////////////////////////////
+// Сетка
+// Работает по аналогии с Bootstrap 3
+// Но можно использовать разные стили сеток
+// И отчасти работает в IE 8 через Modernizr
+////////////////////////////////////////////////////////////
+
+
+@import '_variables'
+@import 'components/mixins'
+
+
+
+// Общие настройки
+// Потому что у него отрицательные отступы.
+.row
+	row()
+	margin-left - $wrapper-padding
+	margin-right - $wrapper-padding
+	div[class^="col_"]
+		padding-left $wrapper-padding
+		padding-right $wrapper-padding
+		&.col_r
+			float right
+	// Для IE 8 через Modernizr
+	.no-mediaqueries &
+		div[class^="col_xs_"]
+		div[class^="col_sm_"]
+		div[class^="col_md_"]
+		div[class^="col_lg_"]
+			clear none
+
+
+// Общая настройка колонок
+div[class^="col_xs_"]
+	clear both
+	+above($xs + 1)
+		float left
+		clear none
+
+div[class^="col_sm_"]
+	clear both
+	+above($sm + 1)
+		float left
+		clear none
+
+div[class^="col_md_"]
+	clear both
+	+above($md + 1)
+		float left
+		clear none
+
+div[class^="col_lg_"]
+	clear both
+	+above($lg + 1)
+		float left
+		clear none
+
+
+
+// Размер и сброс колонки
+
+grid_xs()
+	for num in (1..$grid_cols_num)
+		.col_xs_{num}
+			width 100%
+			+above($xs + 1)
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+		.no-mediaqueries
+			.col_xs_{num}
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+				float left
+
+
+grid_sm()
+	for num in (1..$grid_cols_num)
+		.col_sm_{num}
+			width 100%
+			+above($sm + 1)
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+		.no-mediaqueries
+			.col_sm_{num}
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+				float left
+
+
+grid_md()
+	for num in (1..$grid_cols_num)
+		.col_md_{num}
+			width 100%
+			+above($md + 1)
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+		.no-mediaqueries
+			.col_md_{num}
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+				float left
+
+grid_lg()
+	for num in (1..$grid_cols_num)
+		.col_lg_{num}
+			width 100%
+			+above($lg + 1)
+				col_width = (100 / $grid_cols_num) * num
+				width col_width + '%'
+		.no-mediaqueries
+			col_width = (100 / $grid_cols_num) * num
+			width col_width + '%'
+			float left
+
+grid_xs()
+grid_sm()
+grid_md()
+grid_lg()
+
+
+
+// Сдвиг колонки
+grid_xs_offset()
+	for num in (0..$grid_cols_num)
+		.col_xs_offset_{num}
+			+above($xs + 1)
+				$col_offset = (100 / $grid_cols_num) * num
+				margin-left $col_offset + '%'
+
+grid_sm_offset()
+	for num in (0..$grid_cols_num)
+		.col_sm_offset_{num}
+			+above($sm + 1)
+				$col_offset = (100 / $grid_cols_num) * num
+				margin-left $col_offset + '%'
+
+grid_md_offset()
+	for num in (0..$grid_cols_num)
+		.col_md_offset_{num}
+			+above($md + 1)
+				$col_offset = (100 / $grid_cols_num) * num
+				margin-left $col_offset + '%'
+
+grid_lg_offset()
+	for num in (0..$grid_cols_num)
+		.col_lg_offset_{num}
+			+above($lg + 1)
+				$col_offset = (100 / $grid_cols_num) * num
+				margin-left $col_offset + '%'
+
+grid_xs_offset()
+grid_sm_offset()
+grid_md_offset()
+grid_lg_offset()
+
+

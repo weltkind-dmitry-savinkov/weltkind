@@ -1,0 +1,102 @@
+include ../modules/_active/_active
+
+- var pageTitle = "Портфолио - список"
+
+doctype html
+html(class="no-js" lang=config.lang)
+
+	head
+		title= pageTitle + " — " + config.projectName
+		+head()
+
+	+page()
+		+inject('header')
+			+header-inner()
+
+
+		+inject('main')
+
+			+b.layout
+				+e.wrapper
+					+breadcrumbs()
+					h1.page-title Портфолио
+					+b.tabs-inline
+						+e.item
+							+e.SPAN.link Все работы
+						- for item in ["Банки", "Корпоративные сайты", "Учреждения", "СМИ и новости", "Интернет магазины", "Порталы и социальные сети"]
+							+e.item
+								+e.A(href="#").link= item
+				+e.wrapper_full-md
+					+b.SECTION.list-works
+						+e.UL.list
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/femme.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name Женский журнал Femme
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/ak-kaz.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name Ак-Каз
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/biznes-uchet.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name Бизнес учет
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/tkani.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name tkani.kg - интернет магазин тканей
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/biznes-uchet.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name Бизнес учет
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/tkani.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name tkani.kg - интернет магазин тканей
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/femme.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name Женский журнал Femme
+							+e.LI.item
+								+e.FIGURE.inner
+									+e.A(href="#").link
+									+e.image
+										img(src="upload/works/ak-kaz.jpg", alt="img")
+									+e.FIGCAPTION.bottom
+										+e.A(href="#").name Ак-Каз
+
+
+				+e.wrapper
+					+paginator()
+
+
+
+			+modal()
+				+modal-feedback()
+
+
+
+
+		+inject('footer')
+			+footer()

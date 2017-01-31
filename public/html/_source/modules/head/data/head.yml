@@ -1,0 +1,14 @@
+---
+  head:
+    title: Cоздание сайтов в Бишкеке — Студия Weltkind
+    description: Разработка креативного индивидуального дизайна, разработка сайтов "под ключ" и программного обеспечения ориентированного под веб, создание сайтов любой сложности, разработка логотипов и фирменного стиля.
+    keywords: Weltkind, Бишкек, сайты, web, разработка
+    author: Anatoly Lelevkin
+    url: http://weltkind.com/
+    type: website
+    image:
+      path: img/logo-og.png
+      type: image/png
+      width: 400
+      height: 400
+
