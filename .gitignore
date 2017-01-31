@@ -1,11 +1,5 @@
 /node_modules
 /public/storage
-/bootstrap/cache
-/storage/framework/cache
-/storage/framework/messages
-/storage/framework/sessions
-/storage/framework/views
-/storage/debugbar
 /vendor
 /.idea
 Homestead.json
