@@ -1,2 +1,0 @@
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<div class="g-recaptcha" data-sitekey="<?php echo $siteKey; ?>"<?php $__currentLoopData = $options; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $name => $value): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?><?php echo ' data-' . $name . '="' . $value . '"'; ?><?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>></div>
