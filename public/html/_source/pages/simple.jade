@@ -1,0 +1,34 @@
+include ../modules/_active/_active
+
+- var pageTitle = "Простая текстовая"
+
+doctype html
+html(class="no-js" lang=config.lang)
+
+	head
+		title= pageTitle + " — " + config.projectName
+		+head()
+
+	+page()
+		+inject('header')
+			+header-inner()
+
+
+		+inject('main')
+
+			+b.layout
+				+e.wrapper
+					+breadcrumbs()
+					+simple()
+					+paginator()
+
+
+
+
+
+
+
+
+
+		+inject('footer')
+			+footer()

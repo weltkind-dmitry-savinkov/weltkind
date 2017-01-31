@@ -1,0 +1,1405 @@
+@import '_variables'
+@import 'components/mixins'
+
+
+
+////////////////////////////////////////////////////////////////////
+// Page
+
+// .page *
+	// transition all $ttf
+
+// 
+
+.page
+	&__content
+		background $base-bg-color
+		position relative
+		height 100%
+	&__wrapper
+		min-width $content-min-width
+		min-height 100%
+		margin-bottom - $footer-height
+	* html &__wrapper
+		height 100%
+	&__buffer
+		height $footer-height
+	&__main
+		min-width $content-min-width
+		margin 0 auto
+
+wrapper()
+	padding 0 $wrapper-padding
+	margin auto
+	// width $content-width
+	box-sizing border-box
+	width 100%
+	max-width 1400px
+	+below($lg)
+		width $md
+	+below($md)
+		width $sm
+	+below($sm)
+		width $xs
+	.no-mediaqueries &
+		max-width 96%
+
+.layout
+	position relative
+	padding 10px 0
+	margin 25px 0
+	+below($md)
+		margin 20px 0
+	&__wrapper
+		wrapper()
+	&_line
+		&:before
+			position absolute
+			content ""
+			display block
+			width 100%
+			height 1px
+			background-color #ddd
+			box-shadow 0 0 2px #BCBCC7
+			z-index 2
+			top 13px
+			left 0
+
+
+////////////////////////////////////////////////////////////////////
+// Blocks
+
+
+.page-title
+	margin 20px 0 30px
+	font-size 40px
+	&_small-margin
+		margin-top 0
+		margin-bottom 5px
+	+below($sm)
+		font-size 25px
+
+
+ul.lines
+	list-style none
+	li
+		&:before
+			content "— "
+
+.header
+	&__wrapper
+		wrapper()
+		row()
+	&__logo
+		dib(11%)
+		max-width 100px
+		margin-right 3%
+		+below($lg)
+			width 11%
+			margin-right 3%
+			border-top 2px solid #111419
+		+below($md)
+			border-top-width 6px
+			width 17%
+			margin-right 2%
+		+below($sm)
+			width 36%
+	&__main
+		margin-top 14px
+		dib(54%)
+		+above($lg + 1)
+			width 46%
+		+above($lg + 150)
+			width 50%
+		+below($md)
+			df()
+	&__more
+		dib(13%, 1)
+		margin-top 17px
+		margin-right 1.5%
+		text-align right
+		+above($lg + 250)
+			width 13%
+		+below($lg)
+			width 16%
+		+below($md)
+			display none
+	&__right
+		dib(110px, 1)
+		text-align right
+		padding-top 21px
+		+below($md)
+			width 18%
+		+below($sm)
+			width 60%
+	&__button
+		a
+			+link()
+				transition all $ttf
+				display inline-block
+				padding 4px 11px 5px
+				border 1px solid #000
+				color #000
+				text-decoration none
+				font-weight bold
+				font-size 12px
+			&:hover
+				color blue
+				border 1px solid blue
+	&__top-info
+		row()
+		padding-top 5px
+		+below($sm)
+			display none
+	&__title
+		margin 0
+		display inline-block
+		font-size 14px
+		font-weight bold
+		font-family $base-font-family
+		+below($md)
+			display block
+			float none
+	&__phone
+		margin-bottom 14px
+		a
+			+link()
+				font-size 14px
+				color #000
+				text-decoration none
+				+below($md)
+					float none
+			&:hover
+				text-decoration underline
+		&_small
+			margin-top 8px
+			display none
+			a
+				+link()
+					font-size 13px
+			+below($md)
+				display block
+	&__menu
+		margin-top 19px
+		+below($md)
+			margin-top 12px
+		+below($sm)
+			margin-top 115px
+	&__social
+		margin-bottom 16px
+	&__lang
+		//
+
+
+
+// Футер
+.footer
+	height $footer-height
+	box-sizing border-box
+	min-width $content-min-width
+	background-color #fff
+	color #000
+	padding 20px 0 10px
+	+below($md)
+		padding-top 30px
+		height auto
+	&__wrapper
+		wrapper()
+	&__top
+		margin-bottom 17px
+	&__friends
+		margin-bottom 10px
+		+below($sm)
+			margin-bottom 14px
+		img
+			max-width 100%
+	&__left
+		+below($md)
+			margin-bottom 30px
+	&__center
+		dib(80%)
+		+below($sm)
+			df()
+	&__right
+		dib(20%)
+		margin-top 49px
+		text-align right
+		+below($sm)
+			df()
+			margin-top 20px
+			text-align left
+	&__counter
+		margin-bottom 10px
+		+below($sm)
+			display inline-block
+			margin-right 10px
+
+
+
+
+/////////////////////////////
+// Text
+
+.text
+	&-red
+		color red
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Menu
+
+
+.menu-main
+	position relative
+	z-index 3
+	&__item
+		text-align center
+		padding 0 10px
+		&:first-child
+			text-align left
+			padding-left 0
+		&:last-child
+			text-align right
+			padding-right 0
+			+below($sm)
+				text-align center
+		+below($lg)
+			padding 0 10px
+			&:last-child
+				padding-left 0
+		+below($md)
+			padding 0 5px
+		+below($sm)
+			display inline-block
+			padding 0 13px 10px 0
+		&_button
+			+below($sm)
+				display none
+	&__link
+		+link()
+			position relative
+			color #000
+			font-size 11px
+			+below($sm)
+				font-size 12px
+		&_active
+			color #000
+			border-bottom 1px dashed transparent
+			transform translateX(4px)
+			cursor default
+			&:before
+				content ""
+				display block
+				position absolute
+				top -20%
+				left -15%
+				width 130%
+				height 150%
+				background transparent url('../img/text-mark.png') 0 0 no-repeat
+				background-size cover
+				z-index -1
+
+
+.menu-side
+	//
+	&__search
+		margin-bottom 20px
+		+below($md)
+			margin-top 40px
+	&__list
+		ul-reset()
+	&__item
+		margin-bottom 18px
+		+below($md)
+			display inline-block
+			margin-right 8px
+			margin-bottom 8px
+	&__link
+		//
+
+.input-search
+	row()
+	input[type="text"]
+		dib(85%)
+		border-radius 100px
+		height 25px
+		padding 0 8px
+		font-size 11px
+		letter-spacing -0.02em
+	input[type="submit"]
+	input[type="submit"]:hover
+	input[type="submit"]:focus
+		dib(15%)
+		padding 0
+		height 25px
+		border none
+		background transparent url('../img/arrow-enter.png') 8px 5px no-repeat
+	input[type="submit"]:hover
+		background-position 5px 5px
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Title
+
+.title-small
+	row()
+	&__title
+		h-reset()
+		display inline-block
+		float left
+		a
+			+link()
+				color #000
+				text-decoration none
+			&:hover
+				text-decoration underline
+	&__link
+		+link()
+			display inline-block
+			float right
+			font-size 11px
+			color blue
+
+////////////////////////////////////////////////////////////////////
+// List
+
+
+.list-works
+	&_compact
+		& ^[0]__item
+			+below($lg)
+				&:nth-child(n+4)
+					display none
+			+below($md)
+				&:nth-child(n+3)
+					display none
+			+below($sm)
+				&:nth-child(n+2)
+					display none
+	&__tabs
+		margin-bottom 28px
+	&__top
+		row()
+		margin-bottom 16px
+	&__list
+		row()
+		ul-reset()
+		margin-left - $wrapper-padding
+		margin-right - $wrapper-padding
+	&__item
+		dib(25%)
+		padding-left $wrapper-padding
+		padding-right $wrapper-padding
+		margin-bottom 40px
+		+below($lg)
+			width 33.33%
+		+below($md)
+			width 50%
+		+below($sm)
+			width 100%
+			float none
+	&__inner
+		position relative
+		margin 0
+	&__link
+		link-block()
+	&__image
+		transition all $ttf
+		img
+			width 100%
+			box-shadow 0 2px 9px rgba(0, 0, 0, 0.15)
+	&__bottom
+		text-align center
+		margin-top 10px
+		padding 0 5px
+		&__name
+			+link()
+				color blue
+				text-decoration underline
+
+.cssall .list-works__inner:hover .list-works__image
+	transform scale(0.94)
+
+.cssall .list-works__inner:hover .list-works__name
+	+link()
+		text-decoration none
+
+.no-cssall .list-works
+	&__link
+		display none
+
+
+
+
+.list-clients
+	+below($md)
+		margin-bottom 50px
+	&__top
+		margin-bottom 15px
+	&__list
+		row()
+		ul-reset()
+		margin-left - 10px
+		margin-right - 10px
+		&_prepared
+			+below($md)
+				& ^[0]__item:nth-child(n+16)
+					display none
+			+below($sm)
+				& ^[0]__item:nth-child(n+10)
+					display none
+	&__item
+		dib(20%)
+		padding-left 10px
+		padding-right 10px
+		margin-bottom 20px
+		text-align center
+		height 75px
+		+below($md)
+			margin-bottom 10px
+		+below($sm)
+			width 33.33%
+		img
+			max-height 100%
+			max-width 100%
+			+below($md)
+				max-width 90%
+	&__bottom
+		text-align center
+		display none
+		margin-top 10px
+		+below($md)
+			display block
+	&__more
+		//
+
+
+
+.list-address
+	font-size 11px
+	font-style normal
+	&__title
+		margin-bottom 10px
+		font-size 12px
+	&__copyright
+		margin-right 4px
+	&__list
+		ul-reset()
+		padding-left 16px
+		+below($sm)
+			padding-left 0
+	&__item
+		letter-spacing -0.02em
+		margin-bottom 4px
+
+
+
+
+
+
+.list-blogs
+	ul-reset()
+	margin-bottom 40px
+	&__item
+		margin-bottom 30px
+	&__header
+		margin-bottom 12px
+		color #888
+	&__title
+		margin 0
+		font-size 26px
+		margin-bottom 3px
+		+below($sm)
+			font-size 20px
+		a
+			+link()
+				color #000
+				text-decoration none
+			&:hover
+				text-decoration underline
+	&__info
+		font-size 10px
+	&__content
+		margin-bottom 12px
+		font-size 14px
+	&__bottom
+		//
+	&__comments
+		font-size 11px
+		color #888
+
+.info-small
+	color #888
+	font-size 10px
+	&__author
+		+link()
+			color #888
+
+
+
+////////////////////////////////////////////////////////////////////
+// FAQ
+
+
+.faq-layout
+	row()
+	position relative
+	&__left
+		dib(26%)
+		+below($md)
+			width 25%
+		+below($sm)
+			width 100%
+	&__right
+		dib(72%, 1)
+		z-index 8
+		margin-top 24px
+		display block
+		&_hidden
+			display none
+		+below($sm)
+			display none
+	&__cloud
+		position relative
+		border 1px solid #ccc
+		background-color #fff
+		border-radius 6px
+		padding 9px 12px 12px
+		width 68.5%
+		+below($lg)
+			width 65%
+		+below($md)
+			width 70%
+		.cssall &:before
+			content ""
+			display block
+			position absolute
+			top 24px
+			right -16px
+			width 16px
+			height 12px
+			z-index 3
+			background transparent url("../img/cloud-edge-right.png") 0 0 no-repeat
+	&__text
+		margin-bottom 8px
+		font-size 11px
+		line-height 1.63
+		letter-spacing -0.02em
+	&__button
+		margin-top 15px
+		padding 0 15px
+	&__cartoon
+		position absolute
+		top 0
+		right -10px
+		z-index 6
+		height 100%
+		text-align right
+		+below($md)
+			right 5px
+			top -8px
+		img
+			max-height 100%
+
+
+.faq-list
+	//
+	&__title
+		margin 0
+		margin-bottom 11px
+		font-weight normal
+		font-family $f2
+		font-size 18px
+		a
+			+link()
+				color #000
+				text-decoration none
+			&:hover
+				text-decoration underline
+	&__item
+		position relative
+		margin-bottom 13px
+		letter-spacing -0.025em
+	&__list
+		ul-reset()
+	&__link
+		position relative
+		display inline-block
+		border-bottom 1px dashed blue
+		color blue
+		cursor pointer
+		white-space nowrap
+		transition transform $ttf
+		&:hover
+			border-bottom 1px dashed transparent
+		&_active
+			color #000
+			border-bottom 1px dashed transparent
+			transform translateX(4px)
+			cursor default
+			&:before
+				content ""
+				display block
+				position absolute
+				top -11%
+				left -10%
+				width 120%
+				height 120%
+				background transparent url('../img/text-mark.png') 0 0 no-repeat
+				background-size cover
+				z-index -1
+	&__popup
+		display none
+		position absolute
+		z-index 12
+		top -29px
+		left 170px
+		width 240%
+		&_active
+			display block
+			+below($sm)
+				position relative
+				left auto
+				top auto
+				right auto
+				margin 10px 0
+				width 100%
+
+.faq-answer
+	position relative
+	padding 9px 12px 12px
+	border 1px solid #ccc
+	border-radius 6px
+	background-color #fff
+	.cssall &:before
+		content ""
+		display block
+		position absolute
+		top 34px
+		left -16px
+		width 16px
+		height 12px
+		z-index 3
+		background transparent url("../img/cloud-edge-left.png") 0 0 no-repeat
+		+below($sm)
+			display none
+	&__close
+		width 13px
+		height 13px
+		position absolute
+		top 4px
+		right 4px
+		background transparent url('../img/close-gray.png') 0 0 no-repeat
+		cursor pointer
+		&:hover
+			opacity 0.8
+	&__text
+		margin-bottom 14px
+		font-size 12px
+		line-height 1.63
+		letter-spacing -0.02em
+	&__link
+		//
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Link
+
+
+.link-dashed
+	+link()
+		display inline
+		text-decoration none
+		border-bottom 1px dashed blue
+	&:hover
+		border-bottom 1px dashed transparent
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Feedback
+.feedback
+	//
+	&__title
+		font-size 20px
+		margin-bottom 15px
+	&__item
+		margin-bottom 15px
+		&:last-child
+			margin-bottom 0
+	&__text
+		margin-bottom 3px
+	&__map
+		iframe
+			width 100%
+			height 368px
+	&__label
+		margin-bottom 8px
+		display block
+		font-weight normal
+		color #555
+	&__error
+		margin-top 5px
+		font-size 10px
+		color red
+	&__error-large
+		margin-bottom 10px
+		font-size 15px
+		color red
+	&__button
+		width 200px
+		max-width 100%
+		+below($sm)
+			width 100%
+
+.captcha
+	row()
+	&__left
+		dib(33%)
+		+below($sm)
+			width 100%
+			margin-right 0
+			margin-bottom 10px
+	&__right
+		dib(66%, 1)
+		+below($sm)
+			width 100%
+	&__image
+		img
+			max-width 100%
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Tabs
+
+.tabs-inline
+	row()
+	margin-bottom 20px
+	&__item
+		display inline-block
+		float left
+		margin-right 18px
+		margin-bottom 8px
+		vertical-align bottom
+		+below($sm)
+			display block
+			float none
+			margin-right 0
+	&__link
+		+link()
+			display inline-block
+			color #000
+			text-decoration none
+			color blue
+			text-decoration underline
+			+below($sm)
+				padding 5px
+		&:hover
+			text-decoration none
+	span&__link
+		+link()
+			text-decoration none
+			color #000
+			cursor default
+
+
+
+
+////////////////////////////////////////////////////////////////////
+// Main style
+
+
+.logo
+	position relative
+	height 82px
+	&_animated
+		&:hover
+			& ^[0]__image
+				transform translateY(-40px)
+				+below($md)
+					transform translateY(-43px)
+	&__link
+		link-block(6)
+	&__image
+		transition transform $ttf
+		position absolute
+		top 0
+		left 0
+		z-index 4
+		width 100%
+		img
+			max-width 100%
+	&__text
+		position absolute
+		left 0
+		bottom 8px
+		width 100%
+		text-align left
+		text-decoration underline
+		padding-left 30px
+		z-index 2
+		color blue
+		font-size 10px
+		background transparent url("../img/arrow-left.png") 12px 6px no-repeat
+		+below($lg)
+			padding-left 25px
+			background-position 6px 6px
+
+
+.block-note
+	position relative
+	z-index 4
+	padding 40px 0
+	margin 0 40px
+	text-align center
+	background #f0f0f0 url('../img/cloth-large.png') 0 0 no-repeat
+	background-size cover
+	+below($md)
+		padding 30px 0
+	+below($sm)
+		margin 0 10px
+	&__title
+		margin 0
+		font-family $f3, $f1
+		font-weight normal
+		font-size 39px
+		+below($md)
+			font-size 24px
+		+below($sm)
+			font-size 22px
+		a
+			+link()
+				transition color $ttf
+		a:hover
+			color blue + 32
+
+
+
+
+.social-small
+	row()
+	font-size 0
+	&__item
+		+link()
+			transition opacity $ttf
+			display inline-block
+			margin-left 19px
+		&:hover
+			opacity 0.8
+
+.lang-small
+	//
+	&__link
+		+link()
+			color #000
+
+
+
+
+
+
+.facebook-block
+	row()
+	&__left
+		dib(70%)
+		max-width 380px
+		height 32px
+		overflow hidden
+		+below($sm)
+			width 100%
+			display block
+			float none
+	&__right
+		dib(24.5%, 1)
+		+above($lg + 1)
+			float left
+			width 24%
+			margin-left 6%
+		+below($lg)
+			width 26.5%
+		+below($md)
+			width 32.5%
+		+below($sm)
+			df()
+			margin-left 0
+	&__friends
+		margin-top -105px
+		margin-left -17px
+	&__button
+		margin-top 6px
+		+below($sm)
+			margin-top 20px
+			text-align left
+
+
+
+.info-small-titles
+	h1
+	h2
+	h3
+		margin 0
+		margin-bottom 18px
+		font-size $base-font-size
+		font-family $f1
+		+below($md)
+			font-size 16px
+
+
+
+.block-home
+	//
+	&__clients
+		//
+	&__info
+		//
+	&__faq
+		padding-top 20px
+		+below($md)
+			padding-top 20px
+
+.box-modal
+	animation modalOpen 400ms
+
+@keyframes modalOpen
+	0%
+		transform translateY(80px)
+	100%
+		transform translateY(0)
+
+
+
+///////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+.work-full
+	//
+	&__left
+		margin-bottom 40px
+	&__right
+		padding 0 40px 20px
+		+below($md)
+			padding 0
+	&__preview
+		+link()
+			display block
+		img
+			transition all $ttf
+			width 100%
+			box-shadow 0 4px 6px rgba(0, 0, 0, 0.3)
+			&:hover
+				transform scale(1.025)
+				box-shadow 0 6px 16px 2px rgba(0, 0, 0, 0.2)
+	&__nav
+		margin-bottom 12px
+		+below($md)
+			margin-bottom 30px
+	&__info
+		color #555
+		font-size 11px
+		p
+			margin 10px 0
+
+
+.prices-list
+	$list_padding = 20px
+	row()
+	ul-reset()
+	margin-top 40px
+	margin-left - $list_padding
+	margin-right - $list_padding
+	+below($md)
+		margin-left -10px
+		margin-right -10px
+	&__item
+		dib(25%)
+		padding-left $list_padding
+		padding-right $list_padding
+		margin-bottom 30px
+		+below($lg)
+			width 33.333%
+		+below($md)
+			padding-left 10px
+			padding-right 10px
+			width 50%
+		+below($sm)
+			df()
+
+
+.prices-card
+	transition border $ttf
+	position relative
+	text-align center
+	border 2px solid #eee
+	border-radius 5px
+	padding 10px
+	height 430px
+	&:hover
+		border-color #333
+		& ^[0]__image-hover
+			opacity 1
+		& ^[0]__price
+			opacity 0
+		& ^[0]__button
+			opacity 1
+	&_rec
+		border 2px solid transparent
+		&:hover
+			border 2px solid red
+			&:before
+				opacity 0
+		&:before
+			opacity 1
+			transition opacity $ttf
+			content ""
+			display block
+			position absolute
+			top -2%
+			left 0
+			z-index -1
+			width 100%
+			height 104%
+	&_rec-ru
+		&:before
+			background transparent url('../img/rec-ru.png') 0 0 no-repeat
+			background-size 100% 100%
+	&_rec-en
+		&:before
+			background transparent url('../img/rec-en.png') 0 0 no-repeat
+			background-size 100% 100%
+	*
+		transition opacity $ttf
+	&__link
+		link-block()
+	&__images
+		height 107px
+		position relative
+		text-align center
+		margin-bottom 7px
+	&__image-main
+	&__image-hover
+		position absolute
+		top 0
+		right 0
+		left 0
+		bottom 0
+		margin auto
+		width 78px
+		height 78px
+	&__image-hover
+		opacity 0
+	&__title
+		margin 0
+		margin-bottom 16px
+		font-size 26px
+	&__list
+		//
+	&__bottom
+		position absolute
+		left 0
+		right 0
+		margin auto
+		bottom 20px
+		width 94%
+		height 50px
+	&__price
+	&__button
+		position absolute
+		top 0
+		left 0
+		right 0
+		margin auto
+		padding 7px 0 6px
+	&__price
+		opacity 1
+	&__button
+		padding 5px 0 8px
+		border 2px solid yellow
+		border-radius 5px
+		opacity 0
+		font-size 24px
+
+.list-scope
+	ul-reset()
+	&__item
+		padding 12px
+		border-bottom 1px solid #ddd
+		text-transform uppercase
+		font-size 10px
+		margin-bottom 0
+		&:last-child
+			border-bottom none
+	&__text
+		display inline-block
+		position relative
+		&_marked
+			&:before
+				content ""
+				display block
+				position absolute
+				top -15%
+				left -10%
+				width 120%
+				height 140%
+				background transparent url('../img/text-mark.png') 0 0 no-repeat
+				background-size cover
+				z-index -1
+
+
+
+.pricing-full
+	//
+	&__left
+		+below($md)
+			margin-bottom 40px
+	&__content
+		margin-bottom 20px
+	&__image
+		text-align center
+		+below($md)
+			display none
+		img
+			max-width 100%
+	&__center
+		+below($sm)
+			margin-bottom 40px
+	&__table
+		margin-bottom 20px
+	&__bottom
+		//
+	&__right
+		//
+	&__more
+		margin-bottom 20px
+	&__card
+		margin-bottom 20px
+		+below($sm)
+			display none
+	&__image-small
+		display none
+		text-align center
+		transform scale(-1, 1)
+		+below($md)
+			display block
+		+below($sm)
+			display none
+		img
+			max-width 60%
+
+
+
+.buy-main
+	row()
+	&__left
+		margin-top 5px
+		dib(40%)
+		//
+	&__right
+		dib(40%, 1)
+		text-align right
+		//
+
+
+.link-further
+	+link()
+		position relative
+		display inline-block
+		font-size 10px
+		text-decoration none
+	&:hover
+		text-decoration underline
+	&__arrow
+		position absolute
+		top 0
+		left 0
+	&__text
+		display block
+		padding-left 23px
+
+
+
+.list-rewards
+	row()
+	ul-reset()
+	text-align center
+	font-size 0
+	background url('../img/glass-shelf-end.png') repeat-y scroll 100% -58px, transparent url('../img/glass-shelf.png') repeat-y scroll 0 -58px
+	&__item
+		font-size $base-font-size
+		display inline-block
+		width 220px
+		margin 0 25px 117px
+		padding-top 20px
+
+.card-reward
+	position relative
+	height 303px
+	&__link
+		link-block()
+	&__image
+		position relative
+		img
+			width 100%
+		&:before
+			content ""
+			display block
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 100%
+			z-index 3
+			background transparent url('../img/reward-grass.png') 0 0 no-repeat
+			background-size 100% 100%
+	&__text
+		position absolute
+		left 0
+		right 0
+		z-index 8
+		margin auto
+		bottom -4px
+		width 60%
+		font-size 9px
+		background-color #fff
+		box-shadow 0 0 3px rgba(0, 0, 0, 0.3)
+		text-align center
+		color #555
+		padding 2px 5px
+		line-height 1.2
+
+
+
+.principles
+	//
+	&__section
+		margin 40px 0
+	&__image
+		text-align center
+		img
+			max-width 100%
+	&__title
+		font-size 18px
+		margin 15px 0
+
+
+
+
+
+
+
+
+
+
+
+.blog-full
+	//
+	&__header
+		//
+	&__content
+		//
+	&__header
+		margin-bottom 12px
+		color #888
+	&__title
+		margin 0
+		font-size 26px
+		margin-bottom 2px
+		+below($sm)
+			font-size 20px
+		a
+			+link()
+				color #000
+				text-decoration none
+			&:hover
+				text-decoration underline
+	&__info
+		font-size 10px
+	&__author
+		+link()
+			color #888
+
+
+
+.comment-form
+	border-top 1px dashed #ccc
+	padding-top 20px
+	margin-top 10px
+	+below($md)
+		margin-top 20px
+	&__title
+		font-size 20px
+		margin 0
+		margin-bottom 20px
+	&__item
+		margin-bottom 15px
+	&__bottom
+		margin-top 30px
+
+
+
+.feedback
+	//
+	&__title
+		font-size 23px
+		margin-bottom 15px
+	&__item
+		margin-bottom 20px
+	&__text
+		margin-bottom 5px
+	&__map
+		iframe
+			width 100%
+			height 368px
+		margin-bottom 40px
+	&__label
+		margin-bottom 8px
+		display block
+		font-weight normal
+		color #555
+	&__error
+		margin-top 5px
+		font-size 13px
+		color red
+	&__error-large
+		margin 10px 0
+		font-size 15px
+		color red
+
+.captcha
+	row()
+	&__left
+		dib(29%)
+		margin-right 1%
+		+below($sm)
+			width 100%
+			margin-right 0
+			margin-bottom 10px
+	&__right
+		dib(70%)
+		+below($sm)
+			width 100%
+	&__image
+		img
+			max-width 100%
+
+
+

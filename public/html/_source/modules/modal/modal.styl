@@ -1,0 +1,102 @@
+// Стиль основы
+.arcticmodal-overlay
+.arcticmodal-container
+	position fixed
+	left 0
+	top 0
+	right 0
+	bottom 0
+	z-index 200
+
+.arcticmodal-container
+	overflow auto
+	margin 0
+	padding 0
+	border 0
+	border-collapse collapse
+
+*:first-child
+	& + html
+		.arcticmodal-container
+			height 100%
+
+.arcticmodal-container_i
+	height 100%
+	margin 0 auto
+
+.arcticmodal-container_i2
+	padding 10px
+	margin 0
+	border 0
+	vertical-align middle
+
+.arcticmodal-error
+	padding 20px
+	border-radius 10px
+	background #000
+	color #fff
+
+.arcticmodal-loading
+	width 80px
+	height 80px
+	border-radius 10px
+	background #000 url(loading.gif) no-repeat 50% 50%
+
+
+
+
+
+// Стиль модалки
+.box-modal
+	border 0px solid #888
+	position relative
+	margin auto
+	width 100%
+	max-width 500px
+	background #fff
+	box-shadow 0 0 15px rgba(255, 255, 255, 0.2)
+	&__close
+		position absolute
+		top 15px
+		right 15px
+		padding 8px
+		width 10px
+		height 10px
+		cursor pointer
+		background transparent center center no-repeat
+		background-size 100% 100%
+		z-index 160
+		transition opacity $ttf
+		&:hover
+			opacity 0.6
+
+		// Белая кнопка
+		// background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAE5QTFRF////////////////////////////////////////////////////////////////////////////////////////////////////////kDxURQAAABl0Uk5TAAEDBAgJQkZNTllhYpmdoqaosLG4vfb7/vC5x7sAAAEiSURBVEjHldTbkoIwEATQ1iCB7KooSuz//9F9QFfMbdo8BTJFnQozDQC74whh9Re3bvYnLoNd7xdODgD2E8kYhHpy7oDdiSQZDVW/kCRnhyPX1Vb55Vl2xvDatlR+WzTG18NoeMjHLwCEaKje3/9ZXxgqnx83VYlnXQ1V5jFUvnZQURU9DVXFU1X59vVlqoanqGp6CiqvNNlGZXpSle1JVIInUQmeRCV4UpXt+fxfZjIk/WAmQ16voPr0Wkfx+zF+l1cxSHn10T9CXiX9/EVeBSmvCv3cVBXnS8qrIOVVdb4qqsa8G3kVpLwy5j1TmflTzasg5ZWUP1vVRZr3f9UVbpJG66m6dYCbpfwZI8n7AQC6WcqfEHk7rFt3lvJnuHYA/gCqI0wcJWvbnwAAAABJRU5ErkJggg==')
+
+		// Чёрная кнопка
+		background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZRJREFUeNrM2r1uwjAQB3AXOtDXYvBW74ztWzGwMCBGsrH0scqC1PQsJZKJYkhyX39Lt4BDzslPke/CKjyON4o9RQp4Y0txpnivTVhTHChaihvFJ1Dyscsp53YaW8S6+6It4k6xA0u+j4ZiU7I5DCaUi0jObG6V3Jr+TuwrE1pnTvFJ8n0cQ5fcq4nWnOLcnFL3wasDkjObPv4ovocH7iYsQpvT1Cv/VfsBT05R6twenBazqQ1LTmw2npyi9jk0OYmzseSkxsaCU/R60klwMmOjwcmcjSQnNzYSnNzZcDlBsOFwQtqmL+YEw4bDCYYNl5Mom5XgAn6V5sLUsAiNApHkoZ5A28B/jCbkK38HaBSwt8RwfaclexuYvhNnS+zed5LYErtxktwSm3PSqKTMOGlWUuqcLCopNU6WBbg4J48CXIyTZwHO5oTQt1nMCalvM5sTYt9mFqczaAE+hdMlT8wvi0+gVdMzTtdQvK3Pi2hA+zZjnH4oPoYTN8Ui0Po2JafrWPLlnTgGjD95jHG6lGzy+BdgABf6Aywln1LaAAAAAElFTkSuQmCC')
+
+		+below($md)
+			top 10px
+			right 10px
+			background-image url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAZRJREFUeNrM2r1uwjAQB3AXOtDXYvBW74ztWzGwMCBGsrH0scqC1PQsJZKJYkhyX39Lt4BDzslPke/CKjyON4o9RQp4Y0txpnivTVhTHChaihvFJ1Dyscsp53YaW8S6+6It4k6xA0u+j4ZiU7I5DCaUi0jObG6V3Jr+TuwrE1pnTvFJ8n0cQ5fcq4nWnOLcnFL3wasDkjObPv4ovocH7iYsQpvT1Cv/VfsBT05R6twenBazqQ1LTmw2npyi9jk0OYmzseSkxsaCU/R60klwMmOjwcmcjSQnNzYSnNzZcDlBsOFwQtqmL+YEw4bDCYYNl5Mom5XgAn6V5sLUsAiNApHkoZ5A28B/jCbkK38HaBSwt8RwfaclexuYvhNnS+zed5LYErtxktwSm3PSqKTMOGlWUuqcLCopNU6WBbg4J48CXIyTZwHO5oTQt1nMCalvM5sTYt9mFqczaAE+hdMlT8wvi0+gVdMzTtdQvK3Pi2hA+zZjnH4oPoYTN8Ui0Po2JafrWPLlnTgGjD95jHG6lGzy+BdgABf6Aywln1LaAAAAAElFTkSuQmCC')
+
+
+	&__top
+		row()
+		min-height 24px
+		padding 15px 30px
+		border-bottom 1px solid #f0f0f0
+		+below($md)
+			padding 15px
+	&__title
+		margin 0
+		font-weight normal
+		font-size 25px
+		display inline-block
+		float left
+		width 95%
+	&__content
+		padding 15px 30px
+		+below($md)
+			padding 15px

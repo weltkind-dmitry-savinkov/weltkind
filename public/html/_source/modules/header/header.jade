@@ -1,0 +1,74 @@
+//- Header
+mixin header(data)
+	+b.HEADER.header
+		+e.wrapper_full-md
+			+e.logo
+				+b.logo
+					+e.A(href="index.html").link
+						+e.DIV.image
+							img(src="img/logo-main.png", alt="Веб-студия \"Weltkind\"")
+			+e.right
+				+e.social
+					+b.social-small
+						+e.A(href="#").item
+							img(src="img/soc-fb.png", alt="Facebook")
+						+e.A(href="#").item
+							img(src="img/soc-tw.png", alt="Twitter")
+				+e.lang
+					+b.lang-small
+						+e.A(href="#").link English version
+			+e.more
+				+e.phone
+					A(href="tel:+996551911466") +996 551 911 466
+				+e.button
+					A(href="#").call-feedback Заказать сайт
+			+e.main
+				+e.top-info
+					+e.H1.title Cоздание сайтов в Бишкеке — Студия Weltkind
+					+e.phone_small
+						A(href="tel:+996551911466") +996 551 911 466
+				+e.NAV.menu
+					+b.TABLE.menu-main
+						tr
+							each item in ["О нас", "Портфолио", "Принципы работы", "Тарифы", "Отзывы", "Контакты", "Блог"]
+								+e.TD.item
+									+e.A(href="#").link= item
+
+//- Header
+mixin header-inner(data)
+	+b.HEADER.header
+		+e.wrapper_full-md
+			+e.logo
+				+b.logo_animated
+					+e.A(href="index.html").link
+						+e.DIV.image
+							img(src="img/logo-main.png", alt="Веб-студия \"Weltkind\"")
+						+e.DIV.text Вернуться на главную
+			+e.right
+				+e.social
+					+b.social-small
+						+e.A(href="#").item
+							img(src="img/soc-fb.png", alt="Facebook")
+						+e.A(href="#").item
+							img(src="img/soc-tw.png", alt="Twitter")
+				+e.lang
+					+b.lang-small
+						+e.A(href="#").link English version
+			+e.more
+				+e.phone
+					A(href="tel:+996551911466") +996 551 911 466
+				+e.button
+					A(href="#").call-feedback Заказать сайт
+			+e.main
+				+e.top-info
+					+e.H1.title Cоздание сайтов в Бишкеке — Студия Weltkind
+					+e.phone_small
+						A(href="tel:+996551911466") +996 551 911 466
+				+e.NAV.menu
+					+b.TABLE.menu-main
+						tr
+							+e.TD.item
+								+e.SPAN.link_active О нас
+							each item in ["Портфолио", "Принципы работы", "Тарифы", "Отзывы", "Контакты", "Блог"]
+								+e.TD.item
+									+e.A(href="#").link= item

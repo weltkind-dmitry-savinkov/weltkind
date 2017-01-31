@@ -1,0 +1,79 @@
+include ../modules/_active/_active
+
+- var pageTitle = "Контакты"
+
+doctype html
+html(class="no-js" lang=config.lang)
+
+	head
+		title= pageTitle + " — " + config.projectName
+		+head()
+
+	+page()
+		+inject('header')
+			+header-inner()
+
+
+		+inject('main')
+
+			+b.layout
+				+e.wrapper
+					h1.page-title Контакты
+					+b.feedback
+						form(action="#" method="post")
+							.row
+								.col_md_6
+									+e.title Контактные данные:
+									+e.item
+										+e.text #[b Адрес:] Кыргызстан, г.Бишкек ул.Манасчы Сагымбая 152
+										+e.text
+											b Телефон:
+											a(href="tel:+996551911466") +996 551 911 466
+											| 
+											| (есть WhatsApp)
+										+e.text
+											b E-mail:
+											a(href="mailto:info@weltkind.com") info@weltkind.com
+											|,
+											a(href="mailto:alelevkin@gmail.com") alelevkin@gmail.com
+										+e.text
+											b Skype:
+											a(href="skype:weltkind_") weltkind_
+									+e.title Мы находимся:
+									+e.item
+										+e.map
+											iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1265.4604253205557!2d74.60121265798634!3d42.87060276846182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1485249595788" style="border:0" allowfullscreen)
+								.col_md_6
+									+e.title Свяжитесь с нами:
+									+e.error-large Ошибка при отправке формы
+									+e.item
+										+e.LABEL.label Ваше имя *
+										input(type="text" required="" placeholder="Имя")
+									+e.item
+										+e.LABEL.label Ваш e-mail *
+										input(type="text" required="" placeholder="E-mail").error
+										+e.error Неверный E-mail
+									+e.item
+										+e.LABEL.label Текст сообщения *
+										textarea(type="text" required="" placeholder="Текст сообщения")
+									+e.item
+										+e.LABEL.label Введите защитный код *
+										+b.captcha
+											+e.left
+												+e.image
+													img(src="img/captcha-demo.png", alt="captcha" width="120px" height="40px")
+											+e.right
+												input(type="text" required="" placeholder="Введите надпись на картинке")
+									+e.item
+										+e.button
+											+b.INPUT(type="submit" value="Отправить").button_dark._lg
+
+
+			+modal()
+				+modal-feedback()
+
+
+
+
+		+inject('footer')
+			+footer()

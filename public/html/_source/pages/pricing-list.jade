@@ -1,0 +1,233 @@
+include ../modules/_active/_active
+
+- var pageTitle = "Тарифы - список"
+
+doctype html
+html(class="no-js" lang=config.lang)
+
+	head
+		title= pageTitle + " — " + config.projectName
+		+head()
+
+	+page()
+		+inject('header')
+			+header-inner()
+
+
+		+inject('main')
+
+			+b.layout
+				+e.wrapper
+					+breadcrumbs()
+					h1.page-title Услуги и цены
+					+b.tabs-inline
+						+e.item
+							+e.SPAN.link Создание сайтов
+						+e.item
+							+e.A(href="#").link Логотипы и фирменный стиль
+						+e.item
+							+e.A(href="#").link Сопровождение и продвижение
+					main(role="main")
+						p Мы не просто разработаем для Вас сайт, но и поможем защитить его от взлома. Каждый созданный нами веб-ресурс сопровождается удобной системой управления. При создании учитываются все Ваши пожелания по дизайну, контенту и управлению.
+						p За время нашей работы мы создали несколько сотен разнообразных проектов: от интернет-магазинов и банков, до официальных страниц государственных учреждений. Веб-студия Weltkind – компания, которая прочно заняла лидирующую позицию не только на местном рынке, но и за рубежом.
+						p Только в нашей компании Ваши креативные задумки будут воплощены в профессиональный качественный и удобный веб-сайт. Вы убедитесь, что получаете европейское качество по честным ценам.
+
+					+b.UL.prices-list
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/1.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/1_active.png", alt="img")
+								+e.H2.title Эконом
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text Шаблонный дизайн*
+										+e.LI.item
+											+e.text CMS (Система управления сайтом)
+										+e.LI.item
+											+e.text Информационные страницы
+								+e.bottom
+									+e.price от #[b.text-large $399]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/2.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/2_active.png", alt="img")
+								+e.H2.title Визитка
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked + Эконом
+										+e.LI.item
+											+e.text Индивидуальный дизайн**
+										+e.LI.item
+											+e.text Лента новостей
+										+e.LI.item
+											+e.text Форма обратной связи
+								+e.bottom
+									+e.price от #[b.text-large $599]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/3.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/3_active.png", alt="img")
+								+e.H2.title Стандарт
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked + Визитка
+										+e.LI.item
+											+e.text Индивидуальный дизайн
+										+e.LI.item
+											+e.text Визуальный слайдер
+										+e.LI.item
+											+e.text Карта проезда
+								+e.bottom
+									+e.price от #[b.text-large $799]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card_rec._rec-ru
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/4.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/4_active.png", alt="img")
+								+e.H2.title Бизнес
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked + Стандарт
+										+e.LI.item
+											+e.text Две языковые версии
+										+e.LI.item
+											+e.text Первичная поисковая оптимизация
+										+e.LI.item
+											+e.text Настройка Яндекс-метрики
+								+e.bottom
+									+e.price от #[b.text-large $999]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/5.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/5_active.png", alt="img")
+								+e.H2.title Каталог
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked + Бизнес
+										+e.LI.item
+											+e.text Каталог продукции
+										+e.LI.item
+											+e.text Ещё что-то
+										+e.LI.item
+											+e.text И тут тоже
+								+e.bottom
+									+e.price от #[b.text-large $1299]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/6.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/6_active.png", alt="img")
+								+e.H2.title Магазин
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked + Каталог
+										+e.LI.item
+											+e.text Регистрация пользователей
+										+e.LI.item
+											+e.text Корзина
+										+e.LI.item
+											+e.text Личный кабинет
+								+e.bottom
+									+e.price от #[b.text-large $1499]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/7.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/7_active.png", alt="img")
+								+e.H2.title E - commerce
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked + Магазин
+										+e.LI.item
+											+e.text Интеграция систем онлайн оплаты
+										+e.LI.item
+											+e.text Тут ещё параметр
+										+e.LI.item
+											+e.text И тут тоже что-то
+								+e.bottom
+									+e.price от #[b.text-large $1999]
+									+e.button Далее
+						+e.LI.item
+							+b.prices-card
+								+e.A(href="#").link
+								+e.images
+									+e.image-main
+										img(src="img/site-types/8.png", alt="img")
+									+e.image-hover
+										img(src="img/site-types/8_active.png", alt="img")
+								+e.H2.title Эксклюзивный
+								+e.list
+									+b.UL.list-scope
+										+e.LI.item
+											+e.text_marked Всё включено
+										+e.LI.item
+											+e.text Две языковые версии
+										+e.LI.item
+											+e.text Первичная поисковая оптимизация
+										+e.LI.item
+											+e.text Настройка Яндекс-метрики
+								+e.bottom
+									+e.price от #[b.text-large $2499]
+									+e.button Далее
+						
+
+
+
+
+
+
+					p
+						small * Не следует, однако забывать, что сложившаяся структура организации влечет за собой процесс внедрения и модернизации соответствующий условий активизации.
+						br
+						small ** С другой стороны рамки и место обучения кадров в значительной степени обуславливает создание новых предложений. Повседневная практика показывает, что сложившаяся структура организации позволяет оценить значение позиций.
+
+
+
+
+
+			+modal()
+				+modal-feedback()
+
+
+
+
+		+inject('footer')
+			+footer()

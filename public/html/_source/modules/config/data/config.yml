@@ -1,0 +1,10 @@
+---
+  config:
+    projectName: "Студия Weltkind"
+    lang: "ru"
+    path:
+      favicons: "favicons"
+      styles: "css"
+      scripts: "js"
+      images: "img"
+      fonts: "fonts"

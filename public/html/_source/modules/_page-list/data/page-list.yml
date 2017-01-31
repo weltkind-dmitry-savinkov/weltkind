@@ -1,0 +1,39 @@
+pageList:
+  data:
+    -
+      title: "Домашняя"
+      url: "home"
+    -
+      title: "Простая текстовая"
+      url: "simple"
+    -
+      title: "Портфолио - список"
+      url: "portfolio-list"
+    -
+      title: "Портфолио - полная"
+      url: "portfolio-full"
+
+    -
+      title: "Тарифы - список"
+      url: "pricing-list"
+    -
+      title: "Тарифы - полный"
+      url: "pricing-full"
+    -
+      title: "Блог - список"
+      url: "blog-list"
+    -
+      title: "Блог - полный"
+      url: "blog-full"
+    -
+      title: "Рекомендательные письма"
+      url: "rewards"
+    -
+      title: "Принципы работы"
+      url: "principles"
+    -
+      title: "Контакты"
+      url: "contacts"
+
+
+
