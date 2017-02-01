@@ -1,6 +1,12 @@
-@extends('layouts.inner')
+@extends('layouts.blog')
+
 
 @section('content')
+@hasSection('h1')
+    <h1 class="page-title">@yield('h1')</h1>
+@elseif(isset($meta->h1) && $meta->h1)
+    <h1 class="page-title">{{$meta->h1}}</h1>
+@endif
 <article class="blog-full">
     <header class="blog-full__header">
         <div class="info-small">

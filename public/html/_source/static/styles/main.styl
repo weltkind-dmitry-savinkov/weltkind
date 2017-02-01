@@ -6,11 +6,6 @@
 ////////////////////////////////////////////////////////////////////
 // Page
 
-// .page *
-	// transition all $ttf
-
-// 
-
 .page
 	&__content
 		background $base-bg-color
@@ -53,6 +48,8 @@ wrapper()
 	&__wrapper
 		wrapper()
 	&_line
+		+below($sm)
+			display none
 		&:before
 			position absolute
 			content ""
@@ -71,20 +68,13 @@ wrapper()
 
 
 .page-title
-	margin 20px 0 30px
+	margin 20px 0 35px
 	font-size 40px
 	&_small-margin
 		margin-top 0
 		margin-bottom 5px
 	+below($sm)
 		font-size 25px
-
-
-ul.lines
-	list-style none
-	li
-		&:before
-			content "— "
 
 .header
 	&__wrapper
@@ -240,9 +230,8 @@ ul.lines
 /////////////////////////////
 // Text
 
-.text
-	&-red
-		color red
+.red
+	color red
 
 
 
@@ -396,7 +385,9 @@ ul.lines
 		dib(25%)
 		padding-left $wrapper-padding
 		padding-right $wrapper-padding
-		margin-bottom 40px
+		margin-bottom 20px
+		overflow hidden
+		height 328px
 		+below($lg)
 			width 33.33%
 		+below($md)
@@ -410,6 +401,7 @@ ul.lines
 	&__link
 		link-block()
 	&__image
+		fit(264px)
 		transition all $ttf
 		img
 			width 100%
@@ -513,7 +505,7 @@ ul.lines
 		color #888
 	&__title
 		margin 0
-		font-size 26px
+		font-size 40px
 		margin-bottom 3px
 		+below($sm)
 			font-size 20px
@@ -725,7 +717,24 @@ ul.lines
 	&:hover
 		border-bottom 1px dashed transparent
 
-
+.text-marked
+	margin 10px 0 20px
+	display inline-block
+	position relative
+	&:before
+		content ""
+		display block
+		position absolute
+		top -20%
+		left -7%
+		width 110%
+		height 140%
+		background transparent url('../img/text-mark.png') 0 0 no-repeat
+		background-size 100% 100%
+		z-index 2
+	&__text
+		position relative
+		z-index 3
 
 
 
@@ -789,6 +798,7 @@ ul.lines
 
 .tabs-inline
 	row()
+	ul-reset()
 	margin-bottom 20px
 	&__item
 		display inline-block
@@ -928,8 +938,7 @@ ul.lines
 		dib(24.5%, 1)
 		+above($lg + 1)
 			float left
-			width 24%
-			margin-left 6%
+			margin-left 6.3%
 		+below($lg)
 			width 26.5%
 		+below($md)
@@ -964,7 +973,9 @@ ul.lines
 .block-home
 	//
 	&__clients
-		//
+		padding-right 40px
+		+below($md)
+			padding-right 0
 	&__info
 		//
 	&__faq
@@ -985,7 +996,11 @@ ul.lines
 
 ///////////////////////////////////////////////////////////////////
 
-
+ul.bullet
+	list-style none
+	li
+		&:before
+			content "— "
 
 
 
@@ -1001,6 +1016,7 @@ ul.lines
 			padding 0
 	&__preview
 		+link()
+			margin-bottom 40px
 			display block
 		img
 			transition all $ttf
@@ -1018,6 +1034,11 @@ ul.lines
 		font-size 11px
 		p
 			margin 10px 0
+		ul
+			list-style none
+			li
+				&:before
+					content "— "
 
 
 .prices-list
@@ -1075,7 +1096,7 @@ ul.lines
 			position absolute
 			top -2%
 			left 0
-			z-index -1
+			z-index 2
 			width 100%
 			height 104%
 	&_rec-ru
@@ -1257,8 +1278,10 @@ ul.lines
 		link-block()
 	&__image
 		position relative
+		height 100%
 		img
 			width 100%
+			height 100%
 		&:before
 			content ""
 			display block

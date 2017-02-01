@@ -2093,9 +2093,7 @@ textarea.styler.error:-ms-input-placeholder {
     background-position: center center;
     -webkit-background-size: 60% 60%;
     background-size: 60%;
-}@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min--moz-device-pixel-ratio: 1.5),
-only screen and (min-device-pixel-ratio: 1.5) {
+}@media only screen and (-webkit-min-device-pixel-ratio: 1.5),only screen and (min--moz-device-pixel-ratio: 1.5),only screen and (min-device-pixel-ratio: 1.5) {
     #fancybox-loading,
     .fancybox-close,
     .fancybox-prev span,

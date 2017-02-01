@@ -17,7 +17,7 @@
     <div class="layout__wrapper">
         <div class="block-home">
             <div class="row">
-                <div class="col_md_5">
+                <div class="col_md_6">
                     <div class="block-home__clients">
                         @include('clients::main')
                     </div>

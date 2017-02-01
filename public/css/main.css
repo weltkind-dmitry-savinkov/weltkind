@@ -259,7 +259,7 @@
 }
 
 .red {
-    color: #ce080f;
+    color: #ff0000;
 }
 
 .menu-main {
@@ -268,8 +268,8 @@
 }
 
 .menu-main__item {
-    text-align: center;
     padding: 0 10px;
+    text-align: center;
 }
 
 .menu-main__item:first-child {
@@ -446,12 +446,12 @@
 .list-works__item {
     display: inline-block;
     float: left;
+    overflow: hidden;
     width: 25%;
+    height: 328px;
     margin-bottom: 20px;
     padding-right: 20px;
     padding-left: 20px;
-    overflow: hidden;
-    height: 328px;
 }
 
 .list-works__inner {
@@ -474,6 +474,10 @@
     -webkit-transition: all 200ms ease-in-out 0ms;
     -o-transition: all 200ms ease-in-out 0ms;
     transition: all 200ms ease-in-out 0ms;
+}
+
+.list-works__image img {
+    width: 100%;
 }
 
 .list-works__image img {
@@ -603,7 +607,7 @@
 .list-blogs__title {
     margin: 0;
     margin-bottom: 3px;
-    font-size: 26px;
+    font-size: 40px;
 }
 
 .list-blogs__title a,
@@ -864,6 +868,31 @@
     border-bottom: 1px dashed transparent;
 }
 
+.text-marked {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0 20px;
+}
+
+.text-marked:before {
+    position: absolute;
+    z-index: 2;
+    top: -20%;
+    left: -7%;
+    display: block;
+    width: 110%;
+    height: 140%;
+    content: "";
+    background: transparent url("../img/text-mark.png") 0 0 no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.text-marked__text {
+    position: relative;
+    z-index: 3;
+}
+
 .feedback__title {
     margin-bottom: 15px;
     font-size: 20px;
@@ -938,10 +967,10 @@
 }
 
 .tabs-inline {
-    padding: 0;
     margin: 0;
-    list-style: none;
     margin-bottom: 20px;
+    padding: 0;
+    list-style: none;
 }
 
 .tabs-inline:before,
@@ -1000,7 +1029,7 @@ span.tabs-inline__link:visited {
 
 .logo__link {
     position: absolute;
-    z-index: 30;
+    z-index: 6;
     top: 0;
     left: 0;
     width: 100%;
@@ -1148,6 +1177,10 @@ span.tabs-inline__link:visited {
     font-size: 12px;
 }
 
+.block-home__clients {
+    padding-right: 40px;
+}
+
 .block-home__faq {
     padding-top: 20px;
 }
@@ -1156,6 +1189,14 @@ span.tabs-inline__link:visited {
     -webkit-animation: modalOpen 400ms;
     -o-animation: modalOpen 400ms;
     animation: modalOpen 400ms;
+}
+
+ul.bullet {
+    list-style: none;
+}
+
+ul.bullet li:before {
+    content: "— ";
 }
 
 .work-full__left {
@@ -1201,23 +1242,16 @@ span.tabs-inline__link:visited {
     font-size: 11px;
 }
 
-ul.bullet {
-    list-style: none;
-}
-
-ul.bullet li:before {
-    content: "— ";
+.work-full__info p {
+    margin: 10px 0;
 }
 
 .work-full__info ul {
     list-style: none;
 }
+
 .work-full__info ul li:before {
     content: "— ";
-}
-
-.work-full__info p {
-    margin: 10px 0;
 }
 
 .prices-list {
@@ -1743,8 +1777,7 @@ ul.bullet li:before {
 
     .facebook-block__right {
         float: left;
-        width: 24%;
-        margin-left: 6%;
+        margin-left: 6.3%;
     }
 }
 
@@ -1963,6 +1996,10 @@ ul.bullet li:before {
         font-size: 16px;
     }
 
+    .block-home__clients {
+        padding-right: 0;
+    }
+
     .block-home__faq {
         padding-top: 20px;
     }
@@ -2008,6 +2045,10 @@ ul.bullet li:before {
         width: 320px;
     }
 
+    .layout_line {
+        display: none;
+    }
+
     .page-title {
         font-size: 25px;
     }
@@ -2030,6 +2071,7 @@ ul.bullet li:before {
 
     .header__menu {
         margin-top: 115px;
+        margin-bottom: 20px;
     }
 
     .footer__wrapper {

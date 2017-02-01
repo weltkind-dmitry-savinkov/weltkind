@@ -1,4 +1,4 @@
-@extends('layouts.inner')
+@extends('layouts.blog')
 
 @section('content')
     @if (count($entities))

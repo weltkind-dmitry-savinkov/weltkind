@@ -38,7 +38,11 @@
             <div class="feedback__title">Свяжитесь с нами:
             </div>
             @if (session()->has('message'))
-                <p>{{ session('message') }}</p>
+            <div class="text-marked">
+                <div class="text-marked__text">
+                    {{ session('message') }}
+                </div>
+            </div>
             @endif
 
             {!! Form::open(['action' => '\App\Modules\Feedback\Http\Controllers\IndexController@store'])  !!}

@@ -20,13 +20,13 @@ html(class="no-js" lang=config.lang)
 				+e.wrapper
 					+breadcrumbs()
 					h1.page-title Портфолио
-					+b.tabs-inline
-						+e.item
+					+b.UL.tabs-inline
+						+e.LI.item
 							+e.SPAN.link Все работы
 						- for item in ["Банки", "Корпоративные сайты", "Учреждения", "СМИ и новости", "Интернет магазины", "Порталы и социальные сети"]
-							+e.item
+							+e.LI.item
 								+e.A(href="#").link= item
-				+e.wrapper_full-md
+				+e.wrapper
 					+b.SECTION.list-works
 						+e.UL.list
 							+e.LI.item
