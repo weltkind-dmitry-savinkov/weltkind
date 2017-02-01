@@ -17,7 +17,9 @@ class ModuleServiceProvider extends ModuleProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->make('view')->composer('faq::main', 'App\Modules\Faq\Http\ViewComposers\MainComposer');
     }
+
 
 
 }

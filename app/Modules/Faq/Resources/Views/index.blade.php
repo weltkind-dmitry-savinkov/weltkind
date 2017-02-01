@@ -2,7 +2,10 @@
 
 @section('content')
     @foreach ($entities as $entity)
-        <p>вопрос и ответ</p>
+        <article>
+            <h2>{!! $entity->title !!}</h2>
+            <p>{!! $entity->content !!}</p>
+        </article>
     @endforeach
 @endsection
 
