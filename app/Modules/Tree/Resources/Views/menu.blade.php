@@ -3,7 +3,7 @@
     <table class="menu-main">
         <tr>
             @foreach ($items as $item)
-                @if (Request::is($item->slug))
+                @if (Request::segment(1) == $item->slug)
                     <td class="menu-main__item">
                         <span class="menu-main__link menu-main__link_active">{{$item->title}}</span>
                     </td>

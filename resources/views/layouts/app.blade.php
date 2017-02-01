@@ -80,21 +80,19 @@
                             <div class="header__logo">
                                 @if (Request::is('/'))
                                 <div class="logo">
-                                    <a class="logo__link" href="/">
-                                        <div class="logo__image">
-                                            <img src="/img/logo-main.png" alt="Веб-студия &quot;Weltkind&quot;">
-                                        </div>
-                                    </a>
+                                    <a class="logo__link" href="/"></a>
+                                    <div class="logo__image">
+                                        <img src="/img/logo-main.png" alt="Веб-студия &quot;Weltkind&quot;">
+                                    </div>
                                 </div>
                                 @else
                                 <div class="logo logo_animated">
-                                    <a class="logo__link" href="/">
-                                        <div class="logo__image">
-                                            <img src="/img/logo-main.png" alt="Веб-студия &quot;Weltkind&quot;">
-                                        </div>
-                                        <div class="logo__text">Вернуться на главную
-                                        </div>
-                                    </a>
+                                    <a class="logo__link" href="/"></a>
+                                    <div class="logo__image">
+                                        <img src="/img/logo-main.png" alt="Веб-студия &quot;Weltkind&quot;">
+                                    </div>
+                                    <div class="logo__text">Вернуться на главную
+                                    </div>
                                 </div>
                                 @endif
                             </div>

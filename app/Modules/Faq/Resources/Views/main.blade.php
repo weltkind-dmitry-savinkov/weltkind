@@ -13,7 +13,7 @@
                     <div class="faq-answer__text">
                         {!! $entity->preview !!}
                     </div>
-                    <a class="faq-answer__link" href="/faq#{!! $entity->id !!}">Далее...</a>
+                    <a class="faq-answer__link" href="/faq#faq_{!! $entity->id !!}">Далее...</a>
                 </div>
             </div>
         </li>
