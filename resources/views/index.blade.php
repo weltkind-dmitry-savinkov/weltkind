@@ -37,19 +37,9 @@
                             <div class="faq-layout__left">
                                 @include('faq::main')
                             </div>
-                            <div class="faq-layout__right">
-                                <div class="faq-layout__cloud">
-                                    <div class="faq-layout__text">
-                                        {!! widget('faq-default') !!}
-                                    </div>
-                                    <div class="faq-layout__button">
-                                        <a class="button button_dark button_block call-feedback" href="#">Заказать сайт</a>
-                                    </div>
+                                <div class="faq-layout__right">
+                                    @include('characters::main')
                                 </div>
-                                <div class="faq-layout__cartoon">
-                                    <img class="random-cartoon" src="#" alt=" ">
-                                </div>
-                            </div>
                         </section>
                     </div>
                 </div>
