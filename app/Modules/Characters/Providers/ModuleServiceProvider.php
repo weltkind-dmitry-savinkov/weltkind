@@ -2,20 +2,12 @@
 
 namespace App\Modules\Characters\Providers;
 
-use Caffeinated\Modules\Support\ServiceProvider;
+use App\Providers\ModuleProvider;
 
-class ModuleServiceProvider extends ServiceProvider
+class ModuleServiceProvider extends ModuleProvider
 {
-    /**
-     * Bootstrap the module services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'characters');
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'characters');
-    }
+
+    public $module = 'characters';
 
     /**
      * Register the module services.
@@ -25,5 +17,8 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->make('view')->composer('characters::main', 'App\Modules\Characters\Http\ViewComposers\MainComposer');
     }
+
+
 }

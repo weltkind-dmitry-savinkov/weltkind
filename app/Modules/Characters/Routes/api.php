@@ -12,7 +12,3 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/characters', function (Request $request) {
-    // return $request->characters();
-})->middleware('auth:api');
