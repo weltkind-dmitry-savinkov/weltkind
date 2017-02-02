@@ -8,6 +8,6 @@
     </div>
 </div>
 <div class="faq-layout__cartoon">
-    <img class="random-cartoon" src="#" alt=" ">
+    <img class="random-cartoon" src="/img/cartoons/1.png" alt=" ">
 </div>
 @endif

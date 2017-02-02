@@ -53,27 +53,9 @@ $(document).ready(function() {
         }
     });
 
-    // Генератор случайных чисел
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    // ====================================================================================================
 
-    // Генератор случайных людишек (без повторения)
-    var last_randomCartoonNum;
-    function randomCartoon() {
-        var imagesCount = 5; // - Сколько всего картинок
-        var randNum = 1;
-        randNum = getRandomInt(1, imagesCount);
-        if (randNum == last_randomCartoonNum) {
-            randomCartoon();
-        } else {
-            $('.faq-layout__cartoon .random-cartoon').attr('src', 'img/cartoons/' + randNum + '.png');
-            last_randomCartoonNum = randNum;
-        }
-    }
-    randomCartoon();
-
-    // # Работа блока FAQ
+    // # Блок FAQ
     // ## Контроллеры
     // При нажатии на ссылку - открывает ответ
     $('.faq-list__link').click(function(event) {
@@ -105,7 +87,7 @@ $(document).ready(function() {
     function openFaqAnswer(el) {
         // Картинка, пока её не видно, случайно меняется
         if (!($(el).closest('.faq-list').find('.faq-list__popup').hasClass('faq-list__popup_active'))) {
-            randomCartoon();
+            return true;
         };
         // К ссылке добавляется помеченный стиль
         $('.faq-list__link').removeClass('faq-list__link_active');
@@ -125,6 +107,8 @@ $(document).ready(function() {
         // Правая часть возвращается
         $('.faq-layout__right').removeClass('faq-layout__right_hidden');
     };
+
+    // ====================================================================================================
 
     // Яндекс метрика
     (function (d, w, c) {

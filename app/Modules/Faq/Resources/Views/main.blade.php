@@ -5,7 +5,7 @@
     <ul class="faq-list__list">
         @foreach ($entities as $entity)
         <li class="faq-list__item">
-            <span class="faq-list__link">{!! $entity->title !!}</span>
+            <a class="faq-list__link" href="{{ route('characters.random') }}">{!! $entity->title !!}</a>
             <div class="faq-list__popup">
                 <div class="faq-answer">
                     <div class="faq-answer__close">

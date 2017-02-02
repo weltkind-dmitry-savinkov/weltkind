@@ -10,5 +10,9 @@ use App\Modules\Characters\Models\Character;
 
 class CharactersController extends Controller
 {
-    //
+    public function getModel()
+    {
+        return new Character();
+    }
+
 }

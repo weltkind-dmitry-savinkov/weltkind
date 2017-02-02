@@ -763,7 +763,10 @@
     list-style: none;
 }
 
-.faq-list__link {
+.faq-list__link,
+.faq-list__link:hover
+.faq-list__link:active
+.faq-list__link:visited {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -775,13 +778,17 @@
     white-space: nowrap;
     color: #0066bb;
     border-bottom: 1px dashed #0066bb;
+    text-decoration: none;
 }
 
 .faq-list__link:hover {
     border-bottom: 1px dashed transparent;
 }
 
-.faq-list__link_active {
+.faq-list__link_active,
+.faq-list__link_active:hover,
+.faq-list__link_active:active,
+.faq-list__link_active:visited {
     cursor: default;
     -webkit-transform: translateX(4px);
     -ms-transform: translateX(4px);

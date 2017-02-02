@@ -7,7 +7,6 @@ use App\Modules\Characters\Models\Character;
 class MainComposer
 {
     public function compose(View $view){
-
         $character = new Character();
         $view->with('entity', $character->inRandomOrder()->first());
     }
