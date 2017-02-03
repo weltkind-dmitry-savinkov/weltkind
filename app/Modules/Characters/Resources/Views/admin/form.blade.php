@@ -28,4 +28,9 @@
         {!! BootForm::checkbox('published', 'Опубликовать', 1) !!}
     </div>
 
+    <div class="col-md-5 col-md-offset-1">
+        @include('admin::common.forms.image', ['entity'=>$entity, 'routePrefix'=>$routePrefix, 'field'=>'image'])
+    </div>
+
+
 @endsection
