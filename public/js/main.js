@@ -69,15 +69,18 @@ $(document).ready(function() {
             closeFaqAnswer()
         }
     });
+
     // ## Методы
     // Открываем ответ
     function openFaqAnswer(el) {
         // Картинка, пока её не видно, случайно меняется
         if (!($(el).closest('.faq-list').find('.faq-list__popup').hasClass('faq-list__popup_active'))) {
-            $.post({
-                url: 'characters/random',
+            var url = el.attr('href');
+            console.log(url);
+            $.get({
+                url: url,
                 success: function(data){
-                    $('.faq-layout__right').append(data);
+                    $('.faq-layout__right').html(data);
                 },
             });
         };
@@ -142,8 +145,6 @@ $(document).ready(function() {
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
-
-
 
 
 
