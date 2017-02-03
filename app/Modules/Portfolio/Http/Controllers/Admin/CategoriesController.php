@@ -14,15 +14,18 @@ class CategoriesController extends Admin
 
     protected $routePrefix = 'admin.categories.';
 
-    public function getModel(){
+    public function getModel()
+    {
         return new Category();
     }
 
-    public function getFormViewName(){
+    public function getFormViewName()
+    {
         return $this->viewPrefix.'categories.form';
     }
 
-    public function getIndexViewName(){
+    public function getIndexViewName()
+    {
         return $this->viewPrefix.'categories.index';
     }
 
