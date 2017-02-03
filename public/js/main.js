@@ -7,10 +7,10 @@ $(document).ready(function() {
     function initializeFormStyler() {
         $('input, textarea, select').addClass('styler');
         $('.styler-disable *').removeClass('styler');
-        var btn_tags =   'button,' +
-                        'input[type=\"submit\"],'  +
-                        'input[type=\"reset\"],' +
-                        'input[type=\"button\"]';
+        var btn_tags = 'button,' +
+                       'input[type=\"submit\"],'  +
+                       'input[type=\"reset\"],' +
+                       'input[type=\"button\"]';
         $(btn_tags).removeClass('styler').addClass('button');
         $('.styler').styler();
     };
@@ -23,12 +23,6 @@ $(document).ready(function() {
     // Инициализируем скролл в начало страницы
     toPageTop.init();
 
-    // Инициализация полосы прокрутки
-    $('.scroll-pane').jScrollPane({
-        showArrows: true,
-        autoReinitialise: true,
-    });
-
     // Модалка
     $('.call-feedback').click(function(event) {
         $('#modal_feedback').arcticmodal();
@@ -39,10 +33,10 @@ $(document).ready(function() {
     // ## Награды
     $('.card-reward__link').attr('rel', 'gal');
     $('.card-reward__link').fancybox();
-
     // ## Портфолио - полная
     $('.work-full__preview').attr('rel', 'gal');
     $('.work-full__preview').fancybox();
+
 
 
     // ====================================================================================================
@@ -80,21 +74,20 @@ $(document).ready(function() {
     function openFaqAnswer(el) {
         // Картинка, пока её не видно, случайно меняется
         if (!($(el).closest('.faq-list').find('.faq-list__popup').hasClass('faq-list__popup_active'))) {
-            $.ajax({
-                url: '/',
-                type: 'POST',
-                success: function(html){
-                    $('.faq-layout__right').append(html);
+            $.post({
+                url: 'characters/random',
+                success: function(data){
+                    $('.faq-layout__right').append(data);
                 },
             });
         };
         // К ссылке добавляется помеченный стиль
         $('.faq-list__link').removeClass('faq-list__link_active');
         $(el).addClass('faq-list__link_active');
-        // Появляется сообщение ответа на вопрос
+        // Появляется облако с ответом на вопрос
         $('.faq-list__popup').removeClass('faq-list__popup_active');
         $(el).closest('.faq-list__item').find('.faq-list__popup').addClass('faq-list__popup_active');
-        // Правая часть с человеком и его сообщением скрывается
+        // Правая часть с человечком и его сообщением скрывается
         $('.faq-layout__right').addClass('faq-layout__right_hidden');
     };
     // Закрываем ответ
@@ -108,10 +101,9 @@ $(document).ready(function() {
     };
 
 
-    // ====================================================================================================
-    // Разное:
 
-    // Регуляция количества иконок клиентов.
+    // ====================================================================================================
+    // Регуляция количества иконок клиентов:
     $('.list-clients .list-clients__more').click(function(event) {
         event.preventDefault();
         if ($('.list-clients__list').hasClass('list-clients__list_prepared')) {
@@ -122,6 +114,11 @@ $(document).ready(function() {
             $('.list-clients__more').html("Показать ещё");
         }
     });
+
+
+
+    // ====================================================================================================
+    // Разное:
 
     // Яндекс метрика
     (function (d, w, c) {

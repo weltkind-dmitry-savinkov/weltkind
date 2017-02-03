@@ -9,7 +9,7 @@ Route::group(['prefix' => config('cms.uri')], function() {
 
 });
 
-Route::post('/', ['as' => 'characters.random', 'uses' => 'CharactersController@getModel']);
+Route::post('characters/random', ['as' => 'characters.random', 'uses' => 'CharactersController@getModel']);
 
 
 

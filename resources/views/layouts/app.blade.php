@@ -63,7 +63,7 @@
         <link href="/css/modules.css" rel="stylesheet">
         <link href="/css/main.css" rel="stylesheet">
         <script src="/js/jquery-2.2.4.min.js"></script>
-        <script src="/js/modernizr.js"></script>
+        <script src="/js/modernizr.min.js"></script>
 
 
     </head>
