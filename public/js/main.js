@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+    // ====================================================================================================
+    // Инициализация плагинов:
+
     // Инициализация плагина FormStyler и модуля "button"
     function initializeFormStyler() {
         $('input, textarea, select').addClass('styler');
@@ -41,24 +44,14 @@ $(document).ready(function() {
     $('.work-full__preview').attr('rel', 'gal');
     $('.work-full__preview').fancybox();
 
-    // Регуляция количества иконок клиентов.
-    $('.list-clients .list-clients__more').click(function(event) {
-        event.preventDefault();
-        if ($('.list-clients__list').hasClass('list-clients__list_prepared')) {
-            $('.list-clients__list').removeClass('list-clients__list_prepared');
-            $('.list-clients__more').html("Скрыть");
-        } else {
-            $('.list-clients__list').addClass('list-clients__list_prepared');
-            $('.list-clients__more').html("Показать ещё");
-        }
-    });
 
     // ====================================================================================================
+    // # Блок FAQ:
 
-    // # Блок FAQ
     // ## Контроллеры
     // При нажатии на ссылку - открывает ответ
     $('.faq-list__link').click(function(event) {
+        event.preventDefault();
         el = $(this);
         openFaqAnswer(el);
     });
@@ -87,7 +80,13 @@ $(document).ready(function() {
     function openFaqAnswer(el) {
         // Картинка, пока её не видно, случайно меняется
         if (!($(el).closest('.faq-list').find('.faq-list__popup').hasClass('faq-list__popup_active'))) {
-            return true;
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                success: function(html){
+                    $('.faq-layout__right').append(html);
+                },
+            });
         };
         // К ссылке добавляется помеченный стиль
         $('.faq-list__link').removeClass('faq-list__link_active');
@@ -108,7 +107,21 @@ $(document).ready(function() {
         $('.faq-layout__right').removeClass('faq-layout__right_hidden');
     };
 
+
     // ====================================================================================================
+    // Разное:
+
+    // Регуляция количества иконок клиентов.
+    $('.list-clients .list-clients__more').click(function(event) {
+        event.preventDefault();
+        if ($('.list-clients__list').hasClass('list-clients__list_prepared')) {
+            $('.list-clients__list').removeClass('list-clients__list_prepared');
+            $('.list-clients__more').html("Скрыть");
+        } else {
+            $('.list-clients__list').addClass('list-clients__list_prepared');
+            $('.list-clients__more').html("Показать ещё");
+        }
+    });
 
     // Яндекс метрика
     (function (d, w, c) {

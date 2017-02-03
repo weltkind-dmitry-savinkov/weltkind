@@ -4,7 +4,7 @@
 return [
     'groups'=>[
         ['title' => 'Содержание', 'slug'=>'content', 'icon' => 'fa-file', 'priority' => 99],
-        ['title' => 'Модули', 'slug'=>'modules', 'icon' => 'fa-file', 'priority' => 98]
+        ['title' => 'Модули', 'slug'=>'modules', 'icon' => 'fa-puzzle-piece  ', 'priority' => 98]
     ],
 
     'items' => [
