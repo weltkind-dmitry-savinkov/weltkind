@@ -7,7 +7,7 @@ use App\Modules\Tariffs\Models\Tariff;
 class MainComposer
 {
     public function compose(View $view){
-        $character = new Tariff();
-        $view->with('entity', $character->inRandomOrder()->first());
+        $tariff = new Tariff();
+        $view->with('entity', Tariff::published()->get());
     }
 }
