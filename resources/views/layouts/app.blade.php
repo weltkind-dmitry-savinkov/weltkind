@@ -15,6 +15,9 @@
             <meta property="og:site_name" content="{{$og->site_name}}" />
         @endif
 
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="{{Request::url()}}">
+
         @if(isset($og->image) && $og->image)
             <meta property="og:image" content="{{$og->image}}" />
             <link rel="image_src" href="{{$og->image}}">
@@ -180,9 +183,9 @@
                             <div class="col_md_6">
                                 <div class="footer__center">
                                     <address class="list-address">
-                                        <div class="list-address__title" itemtype="http://schema.org/Organization" itemscope="itemscope">
+                                        <div class="list-address__title"">
                                             <span class="list-address__copyright">&copy;</span>Веб студия
-                                            <span itemprop="name">Weltkind </span>2005–{!! date('Y') !!}
+                                            <span>Weltkind </span>2005–{!! date('Y') !!}
                                         </div>
                                         {!! widget('footer.contacts') !!}
                                     </address>
