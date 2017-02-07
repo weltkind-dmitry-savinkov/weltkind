@@ -151,7 +151,7 @@
                                                         fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;header=false&amp;height=200&amp;href=http%3A%2F%2Fwww.facebook.com%2FWeltkindStudio&amp;locale=ru_RU&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=450">
                                                         <span style="vertical-align: bottom; width: 450px; height: 154px;">
                                                             <iframe class width="450px" name="f100164b560ce1a" scrolling="no" src="https://www.facebook.com/plugins/like_box.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FqXiJsurHCex.js%3Fversion%3D42%23cb%3Dfc0b104f1b1a%26domain%3Dweltkind.com%26origin%3Dhttp%253A%252F%252Fweltkind.com%252Ff28ae8c3c985adc%26relation%3Dparent.parent&amp;container_width=0&amp;header=false&amp;height=200&amp;href=http%3A%2F%2Fwww.facebook.com%2FWeltkindStudio&amp;locale=ru_RU&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=450"
-                                                                title="fb:like_box Facebook Social Plugin" allowtransparency="true" allowfullscreen="true" style="border: medium none; visibility: visible; width: 450px; height: 154px;" height="200px" frameborder="0"></iframe>
+                                                                    title="fb:like_box Facebook Social Plugin" allowtransparency="true" allowfullscreen="true" style="border: medium none; visibility: visible; width: 450px; height: 154px;" height="200px" frameborder="0"></iframe>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -162,7 +162,7 @@
                                                         fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;font=verdana&amp;href=http%3A%2F%2Fwww.facebook.com%2FWeltkindStudio&amp;layout=button_count&amp;locale=ru_RU&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=100">
                                                         <span style="vertical-align: bottom; width: 123px; height: 20px;">
                                                             <iframe class width="100px" name="f184d6fef44c96e" scrolling="no" src="https://www.facebook.com/plugins/like.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FqXiJsurHCex.js%3Fversion%3D42%23cb%3Dfc1417d3a3df0c%26domain%3Dweltkind.com%26origin%3Dhttp%253A%252F%252Fweltkind.com%252Ff28ae8c3c985adc%26relation%3Dparent.parent&amp;container_width=0&amp;font=verdana&amp;href=http%3A%2F%2Fwww.facebook.com%2FWeltkindStudio&amp;layout=button_count&amp;locale=ru_RU&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=100"
-                                                                title="fb:like Facebook Social Plugin" allowtransparency="true" allowfullscreen="true" style="border: medium none; visibility: visible; width: 123px; height: 20px;" height="1000px" frameborder="0"></iframe>
+                                                                    title="fb:like Facebook Social Plugin" allowtransparency="true" allowfullscreen="true" style="border: medium none; visibility: visible; width: 123px; height: 20px;" height="1000px" frameborder="0"></iframe>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -182,12 +182,14 @@
                             </div>
                             <div class="col_md_6">
                                 <div class="footer__center">
-                                    <address class="list-address">
-                                        <div class="list-address__title"">
-                                            <span class="list-address__copyright">&copy;</span>Веб студия
-                                            <span>Weltkind </span>2005–{!! date('Y') !!}
+                                    <address>
+                                        <div class="list-address" itemscope itemtype="http://schema.org/Organization">
+                                            <div class="list-address__title"">
+                                                <span class="list-address__copyright">&copy;</span>Веб студия
+                                                <span itemprop="name">Weltkind </span>2005–{!! date('Y') !!}
+                                            </div>
+                                            {!! widget('footer.contacts') !!}
                                         </div>
-                                        {!! widget('footer.contacts') !!}
                                     </address>
                                 </div>
                                 <div class="footer__right">

@@ -265,11 +265,13 @@
 .menu-main {
     position: relative;
     z-index: 3;
+    border: none;
 }
 
 .menu-main__item {
     padding: 0 10px;
     text-align: center;
+    border: none;
 }
 
 .menu-main__item:first-child {
