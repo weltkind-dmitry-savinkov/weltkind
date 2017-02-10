@@ -24,7 +24,7 @@ $(document).ready(function() {
     toPageTop.init();
 
     // Модалка
-    $('.call-feedback').click(function(event) {
+    $(document).on('click', '.call-feedback', function(event) {
         $('#modal_feedback').arcticmodal();
         event.preventDefault();
     });
