@@ -8,7 +8,6 @@ use App\Modules\Blog\Models\Blog;
 class IndexController extends Controller
 {
 
-
     public function getModel()
     {
         return new Blog();

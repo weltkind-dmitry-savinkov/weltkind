@@ -1,12 +1,12 @@
 //- Header
 mixin header(data)
 	+b.HEADER.header
-		+e.wrapper_full-md
+		+e.wrapper
 			+e.logo
 				+b.logo
 					+e.A(href="index.html").link
-						+e.DIV.image
-							img(src="img/logo-main.png", alt="Веб-студия \"Weltkind\"")
+					+e.DIV.image
+						img(src="img/logo-main.png", alt="Веб-студия \"Weltkind\"")
 			+e.right
 				+e.social
 					+b.social-small
@@ -37,13 +37,13 @@ mixin header(data)
 //- Header
 mixin header-inner(data)
 	+b.HEADER.header
-		+e.wrapper_full-md
+		+e.wrapper
 			+e.logo
 				+b.logo_animated
 					+e.A(href="index.html").link
-						+e.DIV.image
-							img(src="img/logo-main.png", alt="Веб-студия \"Weltkind\"")
-						+e.DIV.text Вернуться на главную
+					+e.DIV.image
+						img(src="img/logo-main.png", alt="Веб-студия \"Weltkind\"")
+					+e.DIV.text Вернуться на главную
 			+e.right
 				+e.social
 					+b.social-small

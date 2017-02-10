@@ -1,13 +1,16 @@
 $(document).ready(function() {
 
+    // ====================================================================================================
+    // Инициализация плагинов:
+
     // Инициализация плагина FormStyler и модуля "button"
     function initializeFormStyler() {
         $('input, textarea, select').addClass('styler');
         $('.styler-disable *').removeClass('styler');
-        var btn_tags =   'button,' +
-                        'input[type=\"submit\"],'  +
-                        'input[type=\"reset\"],' +
-                        'input[type=\"button\"]';
+        var btn_tags = 'button,' +
+                       'input[type=\"submit\"],'  +
+                       'input[type=\"reset\"],' +
+                       'input[type=\"button\"]';
         $(btn_tags).removeClass('styler').addClass('button');
         $('.styler').styler();
     };
@@ -20,12 +23,6 @@ $(document).ready(function() {
     // Инициализируем скролл в начало страницы
     toPageTop.init();
 
-    // Инициализация полосы прокрутки
-    $('.scroll-pane').jScrollPane({
-        showArrows: true,
-        autoReinitialise: true,
-    });
-
     // Модалка
     $('.call-feedback').click(function(event) {
         $('#modal_feedback').arcticmodal();
@@ -36,47 +33,19 @@ $(document).ready(function() {
     // ## Награды
     $('.card-reward__link').attr('rel', 'gal');
     $('.card-reward__link').fancybox();
-
     // ## Портфолио - полная
     $('.work-full__preview').attr('rel', 'gal');
     $('.work-full__preview').fancybox();
 
-    // Регуляция количества иконок клиентов.
-    $('.list-clients .list-clients__more').click(function(event) {
-        event.preventDefault();
-        if ($('.list-clients__list').hasClass('list-clients__list_prepared')) {
-            $('.list-clients__list').removeClass('list-clients__list_prepared');
-            $('.list-clients__more').html("Скрыть");
-        } else {
-            $('.list-clients__list').addClass('list-clients__list_prepared');
-            $('.list-clients__more').html("Показать ещё");
-        }
-    });
 
-    // Генератор случайных чисел
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 
-    // Генератор случайных людишек (без повторения)
-    var last_randomCartoonNum;
-    function randomCartoon() {
-        var imagesCount = 5; // - Сколько всего картинок
-        var randNum = 1;
-        randNum = getRandomInt(1, imagesCount);
-        if (randNum == last_randomCartoonNum) {
-            randomCartoon();
-        } else {
-            $('.faq-layout__cartoon .random-cartoon').attr('src', 'img/cartoons/' + randNum + '.png');
-            last_randomCartoonNum = randNum;
-        }
-    }
-    randomCartoon();
+    // ====================================================================================================
+    // # Блок FAQ:
 
-    // # Работа блока FAQ
     // ## Контроллеры
     // При нажатии на ссылку - открывает ответ
     $('.faq-list__link').click(function(event) {
+        event.preventDefault();
         el = $(this);
         openFaqAnswer(el);
     });
@@ -100,20 +69,28 @@ $(document).ready(function() {
             closeFaqAnswer()
         }
     });
+
     // ## Методы
     // Открываем ответ
     function openFaqAnswer(el) {
         // Картинка, пока её не видно, случайно меняется
         if (!($(el).closest('.faq-list').find('.faq-list__popup').hasClass('faq-list__popup_active'))) {
-            randomCartoon();
+            var url = el.attr('href');
+            console.log(url);
+            $.get({
+                url: url,
+                success: function(data){
+                    $('.faq-layout__right').html(data);
+                },
+            });
         };
         // К ссылке добавляется помеченный стиль
         $('.faq-list__link').removeClass('faq-list__link_active');
         $(el).addClass('faq-list__link_active');
-        // Появляется сообщение ответа на вопрос
+        // Появляется облако с ответом на вопрос
         $('.faq-list__popup').removeClass('faq-list__popup_active');
         $(el).closest('.faq-list__item').find('.faq-list__popup').addClass('faq-list__popup_active');
-        // Правая часть с человеком и его сообщением скрывается
+        // Правая часть с человечком и его сообщением скрывается
         $('.faq-layout__right').addClass('faq-layout__right_hidden');
     };
     // Закрываем ответ
@@ -125,6 +102,26 @@ $(document).ready(function() {
         // Правая часть возвращается
         $('.faq-layout__right').removeClass('faq-layout__right_hidden');
     };
+
+
+
+    // ====================================================================================================
+    // Регуляция количества иконок клиентов:
+    $('.list-clients .list-clients__more').click(function(event) {
+        event.preventDefault();
+        if ($('.list-clients__list').hasClass('list-clients__list_prepared')) {
+            $('.list-clients__list').removeClass('list-clients__list_prepared');
+            $('.list-clients__more').html("Скрыть");
+        } else {
+            $('.list-clients__list').addClass('list-clients__list_prepared');
+            $('.list-clients__more').html("Показать ещё");
+        }
+    });
+
+
+
+    // ====================================================================================================
+    // Разное:
 
     // Яндекс метрика
     (function (d, w, c) {

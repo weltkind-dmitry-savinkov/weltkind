@@ -1,3 +1,7 @@
+.page address {
+    font-style: normal;
+}
+
 .page__content {
     position: relative;
     height: 100%;
@@ -259,17 +263,19 @@
 }
 
 .red {
-    color: #ce080f;
+    color: #ff0000;
 }
 
 .menu-main {
     position: relative;
     z-index: 3;
+    border: none;
 }
 
 .menu-main__item {
-    text-align: center;
     padding: 0 10px;
+    text-align: center;
+    border: none;
 }
 
 .menu-main__item:first-child {
@@ -446,12 +452,12 @@
 .list-works__item {
     display: inline-block;
     float: left;
+    overflow: hidden;
     width: 25%;
+    height: 328px;
     margin-bottom: 20px;
     padding-right: 20px;
     padding-left: 20px;
-    overflow: hidden;
-    height: 328px;
 }
 
 .list-works__inner {
@@ -474,6 +480,10 @@
     -webkit-transition: all 200ms ease-in-out 0ms;
     -o-transition: all 200ms ease-in-out 0ms;
     transition: all 200ms ease-in-out 0ms;
+}
+
+.list-works__image img {
+    width: 100%;
 }
 
 .list-works__image img {
@@ -603,7 +613,7 @@
 .list-blogs__title {
     margin: 0;
     margin-bottom: 3px;
-    font-size: 26px;
+    font-size: 40px;
 }
 
 .list-blogs__title a,
@@ -680,7 +690,7 @@
 .faq-layout__cloud {
     position: relative;
     width: 68.5%;
-    padding: 9px 12px 12px;
+    padding: 0px 12px 12px;
     border: 1px solid #cccccc;
     border-radius: 6px;
     background-color: #ffffff;
@@ -703,6 +713,10 @@
     letter-spacing: -0.02em;
     font-size: 11px;
     line-height: 1.63;
+}
+
+.faq-layout__text p {
+    margin: 10px 0;
 }
 
 .faq-layout__button {
@@ -755,7 +769,10 @@
     list-style: none;
 }
 
-.faq-list__link {
+.faq-list__link,
+.faq-list__link:hover
+.faq-list__link:active
+.faq-list__link:visited {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -767,13 +784,17 @@
     white-space: nowrap;
     color: #0066bb;
     border-bottom: 1px dashed #0066bb;
+    text-decoration: none;
 }
 
 .faq-list__link:hover {
     border-bottom: 1px dashed transparent;
 }
 
-.faq-list__link_active {
+.faq-list__link_active,
+.faq-list__link_active:hover,
+.faq-list__link_active:active,
+.faq-list__link_active:visited {
     cursor: default;
     -webkit-transform: translateX(4px);
     -ms-transform: translateX(4px);
@@ -864,9 +885,37 @@
     border-bottom: 1px dashed transparent;
 }
 
+.text-marked {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0 20px;
+}
+
+.text-marked:before {
+    position: absolute;
+    z-index: 2;
+    top: -20%;
+    left: -7%;
+    display: block;
+    width: 110%;
+    height: 140%;
+    content: "";
+    background: transparent url("../img/text-mark.png") 0 0 no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.text-marked__text {
+    position: relative;
+    z-index: 3;
+}
+
 .feedback__title {
+    margin: 0;
     margin-bottom: 15px;
+    font-weight: normal;
     font-size: 20px;
+    font-family: "Verdana";
 }
 
 .feedback__item {
@@ -938,10 +987,10 @@
 }
 
 .tabs-inline {
-    padding: 0;
     margin: 0;
-    list-style: none;
     margin-bottom: 20px;
+    padding: 0;
+    list-style: none;
 }
 
 .tabs-inline:before,
@@ -1000,7 +1049,7 @@ span.tabs-inline__link:visited {
 
 .logo__link {
     position: absolute;
-    z-index: 30;
+    z-index: 6;
     top: 0;
     left: 0;
     width: 100%;
@@ -1148,6 +1197,10 @@ span.tabs-inline__link:visited {
     font-size: 12px;
 }
 
+.block-home__clients {
+    padding-right: 40px;
+}
+
 .block-home__faq {
     padding-top: 20px;
 }
@@ -1156,6 +1209,14 @@ span.tabs-inline__link:visited {
     -webkit-animation: modalOpen 400ms;
     -o-animation: modalOpen 400ms;
     animation: modalOpen 400ms;
+}
+
+ul.bullet {
+    list-style: none;
+}
+
+ul.bullet li:before {
+    content: "— ";
 }
 
 .work-full__left {
@@ -1201,23 +1262,16 @@ span.tabs-inline__link:visited {
     font-size: 11px;
 }
 
-ul.bullet {
-    list-style: none;
-}
-
-ul.bullet li:before {
-    content: "— ";
+.work-full__info p {
+    margin: 10px 0;
 }
 
 .work-full__info ul {
     list-style: none;
 }
+
 .work-full__info ul li:before {
     content: "— ";
-}
-
-.work-full__info p {
-    margin: 10px 0;
 }
 
 .prices-list {
@@ -1743,8 +1797,7 @@ ul.bullet li:before {
 
     .facebook-block__right {
         float: left;
-        width: 24%;
-        margin-left: 6%;
+        margin-left: 6.3%;
     }
 }
 
@@ -1963,6 +2016,10 @@ ul.bullet li:before {
         font-size: 16px;
     }
 
+    .block-home__clients {
+        padding-right: 0;
+    }
+
     .block-home__faq {
         padding-top: 20px;
     }
@@ -2008,6 +2065,10 @@ ul.bullet li:before {
         width: 320px;
     }
 
+    .layout_line {
+        display: none;
+    }
+
     .page-title {
         font-size: 25px;
     }
@@ -2030,6 +2091,7 @@ ul.bullet li:before {
 
     .header__menu {
         margin-top: 115px;
+        margin-bottom: 20px;
     }
 
     .footer__wrapper {

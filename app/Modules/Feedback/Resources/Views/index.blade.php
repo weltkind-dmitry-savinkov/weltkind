@@ -25,20 +25,26 @@
 <div class="feedback">
     <div class="row">
         <div class="col_md_6">
-            <div class="feedback__title">Контактные данные:
+            <h2 class="feedback__title">Контактные данные:</h2>
+            <div class="feedback__item">
+                <address>
+                    {!! $page->content !!}
+                </address>
             </div>
-            {!! $page->content !!}
-            <div class="feedback__title">Мы находимся:
-            </div>
+            <h2 class="feedback__title">Мы находимся:</h2>
             <div class="feedback__item">
                 <div class="feedback__map" id="map"></div>
             </div>
         </div>
         <div class="col_md_6">
-            <div class="feedback__title">Свяжитесь с нами:
-            </div>
+            <h2 class="feedback__title">Свяжитесь с нами:
+            </h2>
             @if (session()->has('message'))
-                <p>{{ session('message') }}</p>
+            <div class="text-marked">
+                <div class="text-marked__text">
+                    {{ session('message') }}
+                </div>
+            </div>
             @endif
 
             {!! Form::open(['action' => '\App\Modules\Feedback\Http\Controllers\IndexController@store'])  !!}
