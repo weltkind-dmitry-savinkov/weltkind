@@ -1,3 +1,7 @@
+.page address {
+    font-style: normal;
+}
+
 .page__content {
     position: relative;
     height: 100%;
@@ -907,8 +911,11 @@
 }
 
 .feedback__title {
+    margin: 0;
     margin-bottom: 15px;
+    font-weight: normal;
     font-size: 20px;
+    font-family: "Verdana";
 }
 
 .feedback__item {
