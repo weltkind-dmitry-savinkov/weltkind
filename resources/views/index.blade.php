@@ -53,42 +53,12 @@
             <div class="row">
                 <div class="col_md_6 hidded_md">
                     <div class="block-home__blogs">
-                        <section class="blog-widget">
-                            <div class="blog-widget__top">
-                                <div class="title-small">
-                                    <h2 class="title-small__title">
-                                        <A href="#">Новое в блоге:</A>
-                                    </h2>
-                                    <a class="title-small__link" href="#">список блогов</a>
-                                </div>
-                            </div>
-                            <ul class="blog-widget__list">
-                                <li class="blog-widget__item">
-                                    <div class="blog-widget__info">
-                                        <div class="info-small">
-                                            <time class="info-small__time" datetime="2017-02-24">24.02.2017</time>
-                                            <span class="info-small__separator">—</span>
-                                            <a class="info-small__author" href="#">Анатолий Лелёвкин</a>
-                                        </div>
-                                    </div>
-                                    <a class="blog-widget__title" href="#">Создание эксклюзивных сайтов. Как защититься от плагиата? – Часть 2</a>
-                                </li>
-                                <li class="blog-widget__item">
-                                    <div class="blog-widget__info">
-                                        <div class="info-small">
-                                            <time class="info-small__time" datetime="2017-02-24">24.02.2017</time>
-                                            <span class="info-small__separator">—</span>
-                                            <a class="info-small__author" href="#">Анатолий Лелёвкин</a>
-                                        </div>
-                                    </div>
-                                    <a class="blog-widget__title" href="#">Создание эксклюзивных сайтов. Как защититься от плагиата? – Часть 2</a>
-                                </li>
-                            </ul>
-                        </section>
+                        @include('blog::main')
                     </div>
                 </div>
                 <div class="col_md_6">
                     <div class="block-home__more">
+                        <!-- Это новый пустой блок -->
                         <div class="info-meduim">
                             <div class="info-meduim__top">
                                 <div class="title-small">
