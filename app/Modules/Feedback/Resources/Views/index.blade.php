@@ -81,7 +81,7 @@
                 </label>
                 <div class="captcha">
                     <div class="captcha__left">
-                        <div class="captcha__image">
+                        <div class="captcha__image" title="Нажмите, чтобы обновить изображение">
                             {!! captcha_img('flat') !!}
                         </div>
                     </div>

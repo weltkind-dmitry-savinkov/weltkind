@@ -8,7 +8,7 @@ $(document).ready(function() {
         $('input, textarea, select').addClass('styler');
         $('.styler-disable *').removeClass('styler');
         var btn_tags = 'button,' +
-                       'input[type=\"submit\"],'  +
+                       'input[type=\"submit\"],' +
                        'input[type=\"reset\"],' +
                        'input[type=\"button\"]';
         $(btn_tags).removeClass('styler').addClass('button');
@@ -36,40 +36,7 @@ $(document).ready(function() {
     // ====================================================================================================
     // Модалка обратной связи
 
-    function feedbackSendForm() {
-        $('.form-feedback').submit(function(e){
-            e.preventDefault();
-
-            $(this).find('*').removeClass('error');
-            $(this).find('.feedback__error').remove();
-            $(this).find('.feedback__message').html('');
-
-            $.post({
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                success : function(data)
-                {
-                    $('.form-feedback .feedback__message').html('<div class="text-marked"><div class="text-marked__text"> Ваше сообщение успешно отправлено. Наши менеджеры свяжутся с Вами в ближайшее время. </div></div>')
-
-                    // Закрываем окно после отправки
-                    var timerId = setTimeout(function() {
-                        $.arcticmodal('close');
-                    }, 5000);
-                },
-                error: function(data)
-                {
-                    console.log(data);
-                    // Вывод ошибок
-                    var errors = data.responseJSON;
-                    for (var value in errors) {
-                        $('.form-feedback').find('#form_' + value).addClass('error');
-                        $('.form-feedback').find('#form_' + value).closest('.feedback__item').append('<div class="feedback__error">' + errors[value] + '</div>');
-                    }
-                }
-            });
-        });
-    };
-
+    // Отправляем
     $(document).on('click', '.call-feedback', function(e) {
         $.arcticmodal({
             ajax: {
@@ -87,6 +54,48 @@ $(document).ready(function() {
             }
         });
         e.preventDefault();
+    });
+
+    // Получаем
+    function feedbackSendForm() {
+        $('.form-feedback').submit(function(e){
+            e.preventDefault();
+            // Сбрасываем форму
+            $(this).find('*').removeClass('error');
+            $(this).find('.feedback__error').remove();
+            $(this).find('.feedback__message').html('');
+            $.post({
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success : function(data)
+                {
+                    $('.box-modal__title').html('Спасибо!')
+                    $('.box-modal__content').html('<p style="font-size: 1.2em;">Ваше сообщение успешно отправлено. Наши менеджеры свяжутся с Вами в ближайшее время.</p>')
+                    // Закрываем окно после отправки
+                    var timerId = setTimeout(function() {
+                        $.arcticmodal('close');
+                    }, 5000);
+                },
+                error: function(data)
+                {
+                    refreshCaptcha();
+                    // Вывод ошибок
+                    var errors = data.responseJSON;
+                    for (var value in errors) {
+                        $('.form-feedback').find('#form_' + value).addClass('error');
+                        $('.form-feedback').find('#form_' + value).closest('.feedback__item').append('<div class="feedback__error">' + errors[value] + '</div>');
+                    }
+                }
+            });
+        });
+    };
+
+    // Обновление капчи
+    function refreshCaptcha() {
+        $('.captcha__image img').attr('src','/captcha/flat?'+Math.random());
+    }
+    $(document).on('click', '.captcha__image', function(e) {
+        refreshCaptcha();
     });
 
 

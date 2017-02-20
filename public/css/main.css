@@ -994,32 +994,6 @@
     max-width: 100%;
 }
 
-.captcha:before,
-.captcha:after {
-    display: table;
-    content: "";
-}
-
-.captcha:after {
-    clear: both;
-}
-
-.captcha__left {
-    display: inline-block;
-    float: left;
-    width: 33%;
-}
-
-.captcha__right {
-    display: inline-block;
-    float: right;
-    width: 66%;
-}
-
-.captcha__image img {
-    max-width: 100%;
-}
-
 .tabs-inline {
     margin: 0;
     margin-bottom: 20px;
@@ -1900,6 +1874,7 @@ ul.bullet li:before {
 }
 
 .captcha__image img {
+    cursor: pointer;
     max-width: 100%;
 }
 
