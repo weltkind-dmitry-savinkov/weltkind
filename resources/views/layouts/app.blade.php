@@ -108,7 +108,8 @@
                                     <a href="tel:{!! widget('head.phone') !!}">{!! widget('head.phone') !!}</a>
                                 </div>
                                 <div class="header__button">
-                                    <a class="call-feedback" href="#">@lang('index.order')</a>
+                                    <a class="call-feedback" href="{{ route('feedback.modal') }}">@lang('index.order')</a>
+                                    <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
                                 </div>
                             </div>
                             <div class="header__main">

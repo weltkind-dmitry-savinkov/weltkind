@@ -37,14 +37,15 @@
             </div>
         </div>
         <div class="col_md_6">
-            <h2 class="feedback__title">Свяжитесь с нами:
-            </h2>
             @if (session()->has('message'))
-            <div class="text-marked">
-                <div class="text-marked__text">
-                    {{ session('message') }}
+                <h2 class="feedback__title">Спасибо!</h2>
+                <div class="text-marked">
+                    <div class="text-marked__text">
+                        {{ session('message') }}
+                    </div>
                 </div>
-            </div>
+            @else
+                <h2 class="feedback__title">Свяжитесь с нами:</h2>
             @endif
 
             {!! Form::open(['action' => '\App\Modules\Feedback\Http\Controllers\IndexController@store'])  !!}
@@ -81,7 +82,7 @@
                 </label>
                 <div class="captcha">
                     <div class="captcha__left">
-                        <div class="captcha__image">
+                        <div class="captcha__image" title="Нажмите, чтобы обновить изображение">
                             {!! captcha_img('flat') !!}
                         </div>
                     </div>
