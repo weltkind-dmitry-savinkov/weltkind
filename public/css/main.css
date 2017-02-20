@@ -1780,6 +1780,7 @@ ul.bullet li:before {
 .blog-widget__title:hover,
 .blog-widget__title:active,
 .blog-widget__title:visited {
+    display: inline-block;
     color: #000000;
 }
 

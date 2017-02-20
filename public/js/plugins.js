@@ -2798,7 +2798,7 @@ Docs & Examples: http://arcticlab.ru/arcticmodal/
             errors: {
                 tpl: '<div class="arcticmodal-error arcticmodal-close"></div>',
                 autoclose_delay: 2E3,
-                ajax_unsuccessful_load: "Error"
+                ajax_unsuccessful_load: "Ошибка загрузки"
             },
             openEffect: {
                 type: "fade",

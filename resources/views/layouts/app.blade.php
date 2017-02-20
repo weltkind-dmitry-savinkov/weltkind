@@ -108,7 +108,7 @@
                                     <a href="tel:{!! widget('head.phone') !!}">{!! widget('head.phone') !!}</a>
                                 </div>
                                 <div class="header__button">
-                                    <a class="call-feedback" href="#">@lang('index.order')</a>
+                                    <a class="call-feedback" href="{{ route('feedback.modal') }}">@lang('index.order')</a>
                                 </div>
                             </div>
                             <div class="header__main">

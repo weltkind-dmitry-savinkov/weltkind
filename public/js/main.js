@@ -23,12 +23,6 @@ $(document).ready(function() {
     // Инициализируем скролл в начало страницы
     toPageTop.init();
 
-    // Модалка
-    $(document).on('click', '.call-feedback', function(event) {
-        $('#modal_feedback').arcticmodal();
-        event.preventDefault();
-    });
-
     // # Fancybox
     // ## Награды
     $('.card-reward__link').attr('rel', 'gal');
@@ -36,6 +30,64 @@ $(document).ready(function() {
     // ## Портфолио - полная
     $('.work-full__preview').attr('rel', 'gal');
     $('.work-full__preview').fancybox();
+
+
+
+    // ====================================================================================================
+    // Модалка обратной связи
+
+    function feedbackSendForm() {
+        $('.form-feedback').submit(function(e){
+            e.preventDefault();
+
+            $(this).find('*').removeClass('error');
+            $(this).find('.feedback__error').remove();
+            $(this).find('.feedback__message').html('');
+
+            $.post({
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                success : function(data)
+                {
+                    $('.form-feedback .feedback__message').html('<div class="text-marked"><div class="text-marked__text"> Ваше сообщение успешно отправлено. Наши менеджеры свяжутся с Вами в ближайшее время. </div></div>')
+
+                    // Закрываем окно после отправки
+                    var timerId = setTimeout(function() {
+                        $.arcticmodal('close');
+                    }, 5000);
+                },
+                error: function(data)
+                {
+                    console.log(data);
+                    // Вывод ошибок
+                    var errors = data.responseJSON;
+                    for (var value in errors) {
+                        $('.form-feedback').find('#form_' + value).addClass('error');
+                        $('.form-feedback').find('#form_' + value).closest('.feedback__item').append('<div class="feedback__error">' + errors[value] + '</div>');
+                    }
+                }
+            });
+        });
+    };
+
+    $(document).on('click', '.call-feedback', function(e) {
+        $.arcticmodal({
+            ajax: {
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('#token').attr('value')
+                }
+            },
+            type: 'ajax',
+            url: $(this).attr('href'),
+            afterLoadingOnShow : function()
+            {
+                initializeFormStyler();
+                feedbackSendForm();
+            }
+        });
+        e.preventDefault();
+    });
 
 
 
@@ -76,7 +128,6 @@ $(document).ready(function() {
         // Картинка, пока её не видно, случайно меняется
         if (!($(el).closest('.faq-list').find('.faq-list__popup').hasClass('faq-list__popup_active'))) {
             var url = el.attr('href');
-            console.log(url);
             $.get({
                 url: url,
                 success: function(data){

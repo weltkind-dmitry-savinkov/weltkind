@@ -5,9 +5,4 @@
             @yield('content')
         </div>
     </div>
-
-    <!-- Arcticmodal block-->
-    <div class="div" style="display: none;">
-        @include('common.modal-feedback')
-    </div>
 @endsection
