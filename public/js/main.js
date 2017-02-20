@@ -92,8 +92,9 @@ $(document).ready(function() {
 
     // Обновление капчи
     function refreshCaptcha() {
-        $('.captcha__image img').attr('src','/captcha/flat?'+Math.random());
+        $('.captcha__image img').attr('src','/captcha/flat?' + Math.random());
     }
+
     $(document).on('click', '.captcha__image', function(e) {
         refreshCaptcha();
     });
