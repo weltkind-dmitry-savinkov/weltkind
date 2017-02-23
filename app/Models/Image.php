@@ -27,7 +27,7 @@ trait Image{
     }
 
 
-    public function imagePath($slug){
+    public function imagePath($slug=false){
 
         $image = $this->{$this->imageField()} ;
 
@@ -35,11 +35,15 @@ trait Image{
             return false;
         }
 
-        if (!is_file(public_path().$this->imagePrefixPath().$slug.'/'.$image)){
+        if ($slug){
+            $slug.='/';
+        }
+
+        if (!is_file(public_path().$this->imagePrefixPath().$slug.$image)){
             return false;
         }
 
-        return $this->imagePrefixPath().$slug.'/'.$image;
+        return $this->imagePrefixPath().$slug.$image;
     }
 
 

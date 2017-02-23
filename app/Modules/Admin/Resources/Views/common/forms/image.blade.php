@@ -32,10 +32,10 @@
     @if ($entity->$field)
     <div class="timeline-body">
 
-        @if ($entity->imagePath('full'))
-            <a href="{!!$entity->imagePath('full') !!}" rel="ajax"><img src="{!! $entity->imagePath('mini')?:$entity->imagePath('thumb') !!}"></a>
+        @if ($entity->image_full)
+            <a href="{!!$entity->image_full !!}" rel="ajax"><img src="{!! $entity->image_mini?:$entity->image_thumb !!}"></a>
         @else
-            <img src="{!! $entity->imagePath('mini')?:$entity->imagePath('thumb') !!}">
+            <img src="{!! $entity->image_mini?:$entity->image_thumb !!}">
         @endif
 
         <a class="btn btn-danger"
