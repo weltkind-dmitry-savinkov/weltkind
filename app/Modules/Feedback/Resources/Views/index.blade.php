@@ -71,7 +71,7 @@
             <div class="feedback__item">
                 <label class="feedback__label" for="form_message">Текст сообщения *
                 </label>
-                <textarea type="text" placeholder="Текст сообщения" required id="form_message" name="message"
+                <textarea placeholder="Текст сообщения" required id="form_message" name="message"
                           @if ($errors->has('message')) class="error" @endif>{{old('message')}}</textarea>
                 @if ($errors->has('message'))
                     <div class="feedback__error">{{ $errors->first('message') }}</div>

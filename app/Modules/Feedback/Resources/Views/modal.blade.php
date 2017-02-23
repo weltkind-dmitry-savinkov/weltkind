@@ -19,7 +19,7 @@
             </div>
             <div class="feedback__item">
                 <label class="feedback__label" for="form_message">Текст сообщения *</label>
-                <textarea type="text" placeholder="Текст сообщения" required id="form_message" name="message">{{old('message')}}</textarea>
+                <textarea placeholder="Текст сообщения" required id="form_message" name="message">{{old('message')}}</textarea>
             </div>
             <div class="feedback__item">
                 <label class="feedback__label" for="form_captcha">Спам фильтр *</label>
