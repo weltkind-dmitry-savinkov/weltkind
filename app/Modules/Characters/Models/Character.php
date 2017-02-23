@@ -20,4 +20,17 @@ class Character extends Model
         return $query->orderBy('name', 'asc');
     }
 
+
+    public function getImageThumbAttribute(){
+        return $this->imagePath('');
+    }
+
+    public function getImageMiniAttribute(){
+        return $this->imagePath('');
+    }
+
+    public function getImageFullAttribute(){
+        return $this->imagePath('');
+    }
+
 }
