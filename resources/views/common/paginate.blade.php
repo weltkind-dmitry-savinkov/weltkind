@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-<noindex>
+<!--noindex-->
     <nav>
         <ul class="paginator">
             @if (!$paginator->onFirstPage())
@@ -35,5 +35,5 @@
             @endif
         </ul>
     </nav>
-</noindex>
+<!--/noindex-->
 @endif

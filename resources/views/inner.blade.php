@@ -1,7 +1,7 @@
 @extends('layouts.inner')
 
 @section('content')
-    <main role="main">
+    <main>
         {!! $page->content  !!}
     </main>
 @endsection

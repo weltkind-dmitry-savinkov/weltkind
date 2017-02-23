@@ -25,7 +25,7 @@
                 <div class="col_md_6 col_r">
                     <div class="block-home__info">
                         <section class="info-small-titles">
-                            <main role="main">
+                            <main>
                                 {!! $page->content !!}
                             </main>
                         </section>
@@ -90,8 +90,5 @@
         </div>
     </div>
 </div>
-<!-- Arcticmodal block-->
-<div class="div" style="display: none;">
-    @include('common.modal-feedback')
-</div>
+
 @endsection
