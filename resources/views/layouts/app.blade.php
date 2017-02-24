@@ -2,12 +2,12 @@
 
 <html class="no-js" lang="{!! lang() !!}">
 <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
 
-    @hasSection('meta-title')
-    <title>@yield('meta-title') — {!! widget('title') !!}</title>
-    @elseif(isset($meta->title) && $meta->title)
-        <title>{{$meta->title}} — {!! widget('title') !!}</title>
+        @hasSection('meta-title')
+        <title>@yield('meta-title')</title>
+        @elseif(isset($meta->title) && $meta->title)
+        <title>{{$meta->title}}</title>
         @endif
 
                 <!-- OG meta-tags -->
@@ -59,7 +59,7 @@
             <link href="/favicons/safari-pinned-tab.svg" rel="mask-icon">
             <link href="/favicons/manifest.json" rel="manifest">
             <meta name="theme-color" content="#ffffff">
-            <meta name="msapplication-config" content="favicons/browserconfig.xml">
+            <meta name="msapplication-config" content="/favicons/browserconfig.xml">
 
             <!-- Head links -->
             <link href="/css/reset.css" rel="stylesheet">
@@ -107,7 +107,8 @@
                             <div class="header__social">
                                 <!--noindex-->
                                 <div class="social-small">
-                                    <a rel="nofollow" class="social-small__item" href="https://www.facebook.com/WeltkindStudio/">
+                                    <a rel="nofollow" class="social-small__item"
+                                       href="https://www.facebook.com/WeltkindStudio/">
                                         <img src="/img/soc-fb.png" alt="Facebook">
                                     </a>
                                     <a rel="nofollow" class="social-small__item" href="https://twitter.com/weltkind">
@@ -167,7 +168,7 @@
                                                 <div class="fb-like-box fb_iframe_widget" data-width="450"
                                                      data-href="http://www.facebook.com/WeltkindStudio"
                                                      data-height="200" data-show-faces="true" data-stream="false"
-                                                     data-header="false" >
+                                                     data-header="false">
                                                         <span style="vertical-align: bottom; width: 450px; height: 154px;">
                                                             <iframe class width="450" name="f100164b560ce1a"
                                                                     src="https://www.facebook.com/plugins/like_box.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FqXiJsurHCex.js%3Fversion%3D42%23cb%3Dfc0b104f1b1a%26domain%3Dweltkind.com%26origin%3Dhttp%253A%252F%252Fweltkind.com%252Ff28ae8c3c985adc%26relation%3Dparent.parent&amp;container_width=0&amp;header=false&amp;height=200&amp;href=http%3A%2F%2Fwww.facebook.com%2FWeltkindStudio&amp;locale=ru_RU&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=450"
@@ -183,7 +184,7 @@
                                                 <div class="fb-like fb_iframe_widget" data-width="100"
                                                      data-href="http://www.facebook.com/WeltkindStudio"
                                                      data-send="false" data-layout="button_count" data-show-faces="true"
-                                                     data-font="verdana" >
+                                                     data-font="verdana">
                                                         <span style="vertical-align: bottom; width: 123px; height: 20px;">
                                                             <iframe class width="100" name="f184d6fef44c96e"
                                                                     src="https://www.facebook.com/plugins/like.php?app_id=&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FqXiJsurHCex.js%3Fversion%3D42%23cb%3Dfc1417d3a3df0c%26domain%3Dweltkind.com%26origin%3Dhttp%253A%252F%252Fweltkind.com%252Ff28ae8c3c985adc%26relation%3Dparent.parent&amp;container_width=0&amp;font=verdana&amp;href=http%3A%2F%2Fwww.facebook.com%2FWeltkindStudio&amp;layout=button_count&amp;locale=ru_RU&amp;sdk=joey&amp;send=false&amp;show_faces=true&amp;width=100"
@@ -215,46 +216,46 @@
                                 <address>
                                     <div class="list-address" itemscope itemtype="http://schema.org/Organization">
                                         <div class="list-address__title">
-                                        <span class="list-address__copyright">&copy;</span>Веб студия
-                                        <span itemprop="name">Weltkind </span>2005–{!! date('Y') !!}
+                                            <span class="list-address__copyright">&copy;</span>Веб студия
+                                            <span itemprop="name">Weltkind </span>2005–{!! date('Y') !!}
+                                        </div>
+                                        {!! widget('footer.contacts') !!}
                                     </div>
-                                {!! widget('footer.contacts') !!}
+                                </address>
                             </div>
-                            </address>
-                        </div>
-                        <div class="footer__right">
-                            <div class="footer__counter">
-                                <!--noindex-->
-                                <a href="//www.liveinternet.ru/click" target="_blank" rel="nofollow">
-                                    <img width="88"
-                                         src="//counter.yadro.ru/hit?t18.1;r;s1280*1024*24;uhttp%3A//weltkind.com/;0.9005933558359519"
-                                         title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
-                                         alt height="31">
-                                </a>
-                                <!--/noindex-->
-                            </div>
-                            <div class="footer__counter">
-                                <div>
+                            <div class="footer__right">
+                                <div class="footer__counter">
                                     <!--noindex-->
-                                    <a href="https://metrika.yandex.ru/stat/?id=31568893&amp;from=informer"
-                                       target="_blank" rel="nofollow">
-                                        <img src="https://mc.yandex.ru/informer/31568893/3_0_202020FF_000000FF_1_pageviews"
-                                             title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
-                                             alt="Яндекс.Метрика" style="width:88px; height:31px; border:0;"
-                                             onclick="try{Ya.Metrika.informer({i:this,id:31568893,lang:'ru'});return false}catch(e){}">
+                                    <a href="//www.liveinternet.ru/click" target="_blank" rel="nofollow">
+                                        <img width="88"
+                                             src="//counter.yadro.ru/hit?t18.1;r;s1280*1024*24;uhttp%3A//weltkind.com/;0.9005933558359519"
+                                             title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+                                             alt height="31">
                                     </a>
-                                    <noscript><img src="https://mc.yandex.ru/watch/31568893"
-                                        style="position:absolute; left:-9999px;" alt=""></noscript>
                                     <!--/noindex-->
+                                </div>
+                                <div class="footer__counter">
+                                    <div>
+                                        <!--noindex-->
+                                        <a href="https://metrika.yandex.ru/stat/?id=31568893&amp;from=informer"
+                                           target="_blank" rel="nofollow">
+                                            <img src="https://mc.yandex.ru/informer/31568893/3_0_202020FF_000000FF_1_pageviews"
+                                                 title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
+                                                 alt="Яндекс.Метрика" style="width:88px; height:31px; border:0;"
+                                                 onclick="try{Ya.Metrika.informer({i:this,id:31568893,lang:'ru'});return false}catch(e){}">
+                                        </a>
+                                        <noscript><img src="https://mc.yandex.ru/watch/31568893"
+                                                       style="position:absolute; left:-9999px;" alt=""></noscript>
+                                        <!--/noindex-->
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </footer>
+        @show
     </div>
-    </footer>
-    @show
-</div>
 </div>
 <script src="/js/plugins.js"></script>
 <script src="/js/main.js"></script>
