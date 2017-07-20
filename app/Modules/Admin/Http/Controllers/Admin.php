@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Modules\Admin\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Facades\Route;
 use Illuminate\Support\Facades\View;
@@ -12,9 +13,13 @@ abstract class Admin extends Controller
     protected $viewPrefix = '';
     protected $routePrefix = '';
 
+    protected $messages = [
+        'store'     => 'admin::admin.messages.store',
+        'update'    => 'admin::admin.messages.update',
+        'destroy'   => 'admin::admin.messages.destroy',
+    ];
 
     public $perPage = 10;
-
 
     public function __construct(){
         parent::__construct();

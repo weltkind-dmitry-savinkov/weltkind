@@ -12,7 +12,7 @@ return [
     'use_package_routes'    => true,
 
     // For laravel 5.2, please set to ['web', 'auth']
-    'middlewares'           => ['web', 'auth'],
+    'middlewares'           => ['web', 'admin.user'],
 
     // Add prefix for routes
     'prefix'           => '/admin/laravel-filemanager',

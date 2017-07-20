@@ -14,7 +14,7 @@
             <td>{{ $entity->date }}</td>
             <td>{{ $entity->title }}</td>
             <td>{!!  $entity->preview !!}</td>
-            <td>{{ $entity->user->name }} </td>
+            <td>{{ isset($entity->user->name)?$entity->user->name:'Пользователь удалён' }} </td>
             <td class="controls">@include ('admin::common.controls.all', ['routePrefix'=>$routePrefix, 'id'=>$entity->id])</td>
         </tr>
     @endforeach

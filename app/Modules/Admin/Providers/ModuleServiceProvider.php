@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Modules\Admin\Providers;
+
 use App\Providers\ModuleProvider;
 
 class ModuleServiceProvider extends ModuleProvider
 {
     public $module = 'admin';
-
 
     /**
      * Register the module services.
@@ -17,11 +17,7 @@ class ModuleServiceProvider extends ModuleProvider
     {
         $this->app->register(RouteServiceProvider::class);
 
-
-
         $this->app->make('view')->composer('admin::common.languages', 'App\Modules\Admin\Http\ViewComposers\LanguagesComposer');
         $this->app->make('view')->composer('admin::common.menu', 'App\Modules\Admin\Http\ViewComposers\MenuComposer');
-
-
     }
 }

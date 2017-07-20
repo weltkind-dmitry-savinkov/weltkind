@@ -2,6 +2,7 @@
 namespace App\Modules\Blog\Models;
 
 use App\Models\Model;
+use App\Modules\Admin\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Auth;
 use Kyslik\ColumnSortable\Sortable;
 use Illuminate\Notifications\Notifiable;
@@ -78,7 +79,7 @@ class Blog extends Model
 
     public function user()
     {
-         return $this->belongsTo(User::class, 'user_id');
+         return $this->belongsTo(\App\Modules\Admin\Models\Admin::class, 'user_id');
     }
 
 
