@@ -40,14 +40,11 @@ $(document).ready(function() {
     $(document).on('click', '.call-feedback', function(e) {
         $.arcticmodal({
             ajax: {
-                type: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': $('#token').attr('value')
-                }
+                type: 'GET'
             },
             type: 'ajax',
             url: $(this).attr('href'),
-            afterLoadingOnShow : function()
+            afterLoadingOnShow: function()
             {
                 initializeFormStyler();
                 feedbackSendForm();
