@@ -8,8 +8,20 @@ return [
     ],
 
     'items' => [
-        ['icon' => 'fa-internet-explorer', 'group'=>'portfolio', 'route' => 'admin.portfolio.index', 'title' => 'Список работ'],
-        ['icon' => 'fa-navicon', 'group'=>'portfolio', 'route' => 'admin.categories.index', 'title' => 'Список категорий']
+        [
+            'icon' => 'fa-internet-explorer',
+            'group'=>'portfolio',
+            'route' => 'admin.portfolio.index',
+            'title' => 'Список работ',
+            'slug'  => 'portfolio'
+        ],
+        [
+            'icon' => 'fa-navicon',
+            'group'=>'portfolio',
+            'route' => 'admin.categories.index',
+            'title' => 'Список категорий',
+            'slug'  => 'categories'
+        ]
     ]
 
 

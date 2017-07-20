@@ -6,13 +6,12 @@
             <span class="logo-lg"><b>Lara</b>CMS</span>
         </a>
         <nav class="navbar navbar-static-top">
-
-            @if (Auth::user())
+            @if (Auth::guard('admin')->user())
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
-                            <a href="{{route('admin.users.edit', Auth::user()->id)}}">
-                                <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                            <a href="{{route('admin.users.edit', Auth::guard('admin')->user()->id)}}">
+                                <span class="hidden-xs">{{ Auth::guard('admin')->user()->name }}</span>
                             </a>
                         </li>
 
@@ -29,7 +28,6 @@
 
     @include('admin::common.menu')
 
-
     <div class="content-wrapper">
         <section class="content-header">
             @yield('title')
@@ -38,7 +36,6 @@
             @section('topmenu')
                 @include('admin::common.topmenu.all')
             @show
-
         </section>
         <section class="content">
             <div class="box">

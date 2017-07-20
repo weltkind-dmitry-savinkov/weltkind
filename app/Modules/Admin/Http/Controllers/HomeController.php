@@ -7,7 +7,8 @@ use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-
+    public $page        = 'index';
+    public $pageGroup   = 'index';
 
     public function index(){
 

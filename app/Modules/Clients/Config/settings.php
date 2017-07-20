@@ -1,5 +1,6 @@
 <?php
 return [
     'title'=>'Клиенты',
-    'localization'=>true
+    'localization'=>true,
+    'in_roles'  => 1
 ];

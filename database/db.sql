@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 17 2017 г., 11:03
+-- Время создания: Июл 20 2017 г., 08:17
 -- Версия сервера: 5.6.31
 -- Версия PHP: 5.6.23
 
@@ -23,9 +23,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `lr_admins`
+--
+
+DROP TABLE IF EXISTS `lr_admins`;
+CREATE TABLE IF NOT EXISTS `lr_admins` (
+  `id` int(10) unsigned NOT NULL,
+  `role_id` int(10) unsigned NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `lr_admins`
+--
+
+INSERT INTO `lr_admins` (`id`, `role_id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(2, 1, 'admin', 'admin@admin.ru', '$2y$10$5NZhwPoo.hILeRDyBWy5B.REUx2cmcKjVh5LfL4rZZgBIubWV0uPS', NULL, '0000-00-00 00:00:00', NULL),
+(3, 2, 'Alex', 'xannn94@mail.ru', '$2y$10$q2fFTGTuvfNMT/YR4bT9veXgR6USvnAVDM7cRgTgTMqbc7loJLPYu', '3bbTEr8Q5dzaESXlkVRboDl67GIzUoVH3FWOhLQqyplyHDEN4cwjake7vsm6', '2017-07-19 22:48:26', '2017-07-19 23:16:21');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `lr_blog`
 --
 
+DROP TABLE IF EXISTS `lr_blog`;
 CREATE TABLE IF NOT EXISTS `lr_blog` (
   `id` int(11) NOT NULL,
   `lang` enum('ru','en') DEFAULT NULL,
@@ -89,6 +116,7 @@ INSERT INTO `lr_blog` (`id`, `lang`, `published`, `date`, `title`, `user_id`, `p
 -- Структура таблицы `lr_characters`
 --
 
+DROP TABLE IF EXISTS `lr_characters`;
 CREATE TABLE IF NOT EXISTS `lr_characters` (
   `id` int(11) NOT NULL,
   `lang` enum('en','ru') DEFAULT NULL,
@@ -117,6 +145,7 @@ INSERT INTO `lr_characters` (`id`, `lang`, `content`, `name`, `image`, `publishe
 -- Структура таблицы `lr_clients`
 --
 
+DROP TABLE IF EXISTS `lr_clients`;
 CREATE TABLE IF NOT EXISTS `lr_clients` (
   `id` int(11) NOT NULL,
   `lang` enum('ru','en') DEFAULT NULL,
@@ -220,6 +249,7 @@ INSERT INTO `lr_clients` (`id`, `lang`, `priority`, `published`, `date`, `title`
 -- Структура таблицы `lr_faq`
 --
 
+DROP TABLE IF EXISTS `lr_faq`;
 CREATE TABLE IF NOT EXISTS `lr_faq` (
   `id` int(11) NOT NULL,
   `lang` enum('ru','en') DEFAULT NULL,
@@ -258,6 +288,7 @@ INSERT INTO `lr_faq` (`id`, `lang`, `published`, `on_main`, `priority`, `date`, 
 -- Структура таблицы `lr_feedback`
 --
 
+DROP TABLE IF EXISTS `lr_feedback`;
 CREATE TABLE IF NOT EXISTS `lr_feedback` (
   `id` int(11) NOT NULL,
   `date` datetime NOT NULL,
@@ -424,6 +455,7 @@ INSERT INTO `lr_feedback` (`id`, `date`, `lang`, `ip`, `name`, `email`, `message
 -- Структура таблицы `lr_migrations`
 --
 
+DROP TABLE IF EXISTS `lr_migrations`;
 CREATE TABLE IF NOT EXISTS `lr_migrations` (
   `id` int(10) unsigned NOT NULL,
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -445,9 +477,137 @@ INSERT INTO `lr_migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `lr_modules`
+--
+
+DROP TABLE IF EXISTS `lr_modules`;
+CREATE TABLE IF NOT EXISTS `lr_modules` (
+  `id` int(10) unsigned NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `lr_modules`
+--
+
+INSERT INTO `lr_modules` (`id`, `slug`, `title`) VALUES
+(4, 'images', 'Изображения'),
+(5, 'files', 'Файлы'),
+(6, 'admins', 'Администраторы'),
+(7, 'blog', 'Блог'),
+(8, 'characters', 'Персонажи'),
+(9, 'clients', 'Клиенты'),
+(10, 'faq', 'FAQ'),
+(11, 'portfolio', 'Список работ'),
+(12, 'categories', 'Список категорий'),
+(13, 'reviews', 'Отзывы'),
+(14, 'roles', 'Группы администраторов'),
+(15, 'widgets', 'Виджеты'),
+(17, 'tree', 'Дерево сайта');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `lr_permissions`
+--
+
+DROP TABLE IF EXISTS `lr_permissions`;
+CREATE TABLE IF NOT EXISTS `lr_permissions` (
+  `id` int(10) unsigned NOT NULL,
+  `module_id` int(10) unsigned NOT NULL,
+  `create` tinyint(4) NOT NULL,
+  `read` tinyint(4) NOT NULL,
+  `update` tinyint(4) NOT NULL,
+  `delete` tinyint(4) NOT NULL,
+  `publish` tinyint(4) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `lr_permissions`
+--
+
+INSERT INTO `lr_permissions` (`id`, `module_id`, `create`, `read`, `update`, `delete`, `publish`) VALUES
+(1, 4, 1, 1, 1, 1, 1),
+(2, 5, 1, 1, 1, 1, 1),
+(3, 6, 1, 1, 1, 1, 1),
+(4, 7, 1, 1, 1, 1, 1),
+(5, 8, 1, 1, 1, 1, 1),
+(6, 9, 1, 1, 1, 1, 1),
+(7, 10, 1, 1, 1, 1, 1),
+(8, 11, 1, 1, 1, 1, 1),
+(9, 12, 1, 1, 1, 1, 1),
+(10, 13, 1, 1, 1, 1, 1),
+(11, 14, 1, 1, 1, 1, 1),
+(12, 15, 1, 1, 1, 1, 1),
+(13, 4, 1, 1, 1, 1, 1),
+(14, 5, 1, 1, 1, 1, 1),
+(15, 6, 1, 1, 1, 1, 1),
+(16, 7, 0, 1, 1, 1, 1),
+(17, 8, 1, 1, 1, 1, 1),
+(18, 9, 1, 1, 1, 1, 1),
+(19, 10, 1, 1, 1, 1, 1),
+(20, 11, 1, 1, 1, 1, 1),
+(21, 12, 1, 1, 1, 1, 1),
+(22, 13, 1, 1, 1, 1, 1),
+(23, 14, 1, 1, 1, 1, 1),
+(24, 15, 1, 1, 1, 1, 1),
+(38, 17, 1, 1, 1, 1, 1),
+(39, 17, 1, 1, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `lr_permission_roles`
+--
+
+DROP TABLE IF EXISTS `lr_permission_roles`;
+CREATE TABLE IF NOT EXISTS `lr_permission_roles` (
+  `id` int(10) unsigned NOT NULL,
+  `roles_id` int(10) unsigned NOT NULL,
+  `permission_id` int(10) unsigned NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `lr_permission_roles`
+--
+
+INSERT INTO `lr_permission_roles` (`id`, `roles_id`, `permission_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 1, 6),
+(7, 1, 7),
+(8, 1, 8),
+(9, 1, 9),
+(10, 1, 10),
+(11, 1, 11),
+(12, 1, 12),
+(13, 2, 13),
+(14, 2, 14),
+(15, 2, 15),
+(16, 2, 16),
+(17, 2, 17),
+(18, 2, 18),
+(19, 2, 19),
+(20, 2, 20),
+(21, 2, 21),
+(22, 2, 22),
+(23, 2, 23),
+(24, 2, 24),
+(37, 1, 37),
+(38, 1, 38),
+(39, 2, 39);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `lr_portfolio`
 --
 
+DROP TABLE IF EXISTS `lr_portfolio`;
 CREATE TABLE IF NOT EXISTS `lr_portfolio` (
   `id` int(11) NOT NULL,
   `lang` enum('en','ru') DEFAULT NULL,
@@ -624,6 +784,7 @@ INSERT INTO `lr_portfolio` (`id`, `lang`, `published`, `on_main`, `date`, `url`,
 -- Структура таблицы `lr_portfolio_categories`
 --
 
+DROP TABLE IF EXISTS `lr_portfolio_categories`;
 CREATE TABLE IF NOT EXISTS `lr_portfolio_categories` (
   `id` int(11) NOT NULL,
   `lang` enum('ru','en','ky') NOT NULL,
@@ -656,6 +817,7 @@ INSERT INTO `lr_portfolio_categories` (`id`, `lang`, `published`, `priority`, `o
 -- Структура таблицы `lr_portfolio_categories_relations`
 --
 
+DROP TABLE IF EXISTS `lr_portfolio_categories_relations`;
 CREATE TABLE IF NOT EXISTS `lr_portfolio_categories_relations` (
   `portfolio_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
@@ -815,6 +977,7 @@ INSERT INTO `lr_portfolio_categories_relations` (`portfolio_id`, `category_id`) 
 -- Структура таблицы `lr_portfolio_images`
 --
 
+DROP TABLE IF EXISTS `lr_portfolio_images`;
 CREATE TABLE IF NOT EXISTS `lr_portfolio_images` (
   `id` int(11) NOT NULL,
   `portfolio_id` int(11) NOT NULL,
@@ -1115,6 +1278,7 @@ INSERT INTO `lr_portfolio_images` (`id`, `portfolio_id`, `position`, `image`, `c
 -- Структура таблицы `lr_reviews`
 --
 
+DROP TABLE IF EXISTS `lr_reviews`;
 CREATE TABLE IF NOT EXISTS `lr_reviews` (
   `id` int(11) NOT NULL,
   `lang` enum('ru','en') DEFAULT NULL,
@@ -1172,9 +1336,31 @@ INSERT INTO `lr_reviews` (`id`, `lang`, `priority`, `published`, `date`, `title`
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `lr_roles`
+--
+
+DROP TABLE IF EXISTS `lr_roles`;
+CREATE TABLE IF NOT EXISTS `lr_roles` (
+  `id` int(10) unsigned NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(4) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `lr_roles`
+--
+
+INSERT INTO `lr_roles` (`id`, `title`, `active`) VALUES
+(1, 'Администратор', 1),
+(2, 'тестовая группа 1', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `lr_settings`
 --
 
+DROP TABLE IF EXISTS `lr_settings`;
 CREATE TABLE IF NOT EXISTS `lr_settings` (
   `id` int(11) NOT NULL,
   `key` varchar(255) NOT NULL,
@@ -1196,6 +1382,7 @@ INSERT INTO `lr_settings` (`id`, `key`, `value`) VALUES
 -- Структура таблицы `lr_tariffs`
 --
 
+DROP TABLE IF EXISTS `lr_tariffs`;
 CREATE TABLE IF NOT EXISTS `lr_tariffs` (
   `id` int(11) NOT NULL,
   `lang` enum('en','ru') DEFAULT NULL,
@@ -1219,6 +1406,7 @@ CREATE TABLE IF NOT EXISTS `lr_tariffs` (
 -- Структура таблицы `lr_tariffs_categories`
 --
 
+DROP TABLE IF EXISTS `lr_tariffs_categories`;
 CREATE TABLE IF NOT EXISTS `lr_tariffs_categories` (
   `id` int(11) NOT NULL,
   `lang` enum('ru','en','ky') NOT NULL,
@@ -1235,6 +1423,7 @@ CREATE TABLE IF NOT EXISTS `lr_tariffs_categories` (
 -- Структура таблицы `lr_tree`
 --
 
+DROP TABLE IF EXISTS `lr_tree`;
 CREATE TABLE IF NOT EXISTS `lr_tree` (
   `id` int(10) unsigned NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
@@ -1287,22 +1476,22 @@ INSERT INTO `lr_tree` (`id`, `parent_id`, `lft`, `rgt`, `depth`, `lang`, `slug`,
 -- Структура таблицы `lr_users`
 --
 
+DROP TABLE IF EXISTS `lr_users`;
 CREATE TABLE IF NOT EXISTS `lr_users` (
   `id` int(10) unsigned NOT NULL,
+  `region_id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Дамп данных таблицы `lr_users`
---
-
-INSERT INTO `lr_users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@admin.ru', '$2y$10$YFK50uCXt8ZiMGKOfaUEIelTX0j9MmK.LrmlelkgSgBgnhGi2GA0K', 'txu9HsTHHzG1MbG4GJXMOch2gTQOBhDH4ZyIEbwvGU3JFKpGpn9ZPXLmEeYL', NULL, '2017-01-17 04:04:53');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1310,6 +1499,7 @@ INSERT INTO `lr_users` (`id`, `name`, `email`, `password`, `remember_token`, `cr
 -- Структура таблицы `lr_widgets`
 --
 
+DROP TABLE IF EXISTS `lr_widgets`;
 CREATE TABLE IF NOT EXISTS `lr_widgets` (
   `id` int(11) NOT NULL,
   `protected` tinyint(4) NOT NULL,
@@ -1350,6 +1540,7 @@ INSERT INTO `lr_widgets` (`id`, `protected`, `published`, `lang`, `slug`, `title
 -- Структура таблицы `tariffs`
 --
 
+DROP TABLE IF EXISTS `tariffs`;
 CREATE TABLE IF NOT EXISTS `tariffs` (
   `name` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1357,6 +1548,13 @@ CREATE TABLE IF NOT EXISTS `tariffs` (
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `lr_admins`
+--
+ALTER TABLE `lr_admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
 
 --
 -- Индексы таблицы `lr_blog`
@@ -1401,6 +1599,27 @@ ALTER TABLE `lr_migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `lr_modules`
+--
+ALTER TABLE `lr_modules`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `lr_permissions`
+--
+ALTER TABLE `lr_permissions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `permissions_module_id_foreign` (`module_id`);
+
+--
+-- Индексы таблицы `lr_permission_roles`
+--
+ALTER TABLE `lr_permission_roles`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `permission_roles_permission_id_roles_id_unique` (`permission_id`,`roles_id`),
+  ADD KEY `permission_roles_roles_id_foreign` (`roles_id`);
+
+--
 -- Индексы таблицы `lr_portfolio`
 --
 ALTER TABLE `lr_portfolio`
@@ -1438,6 +1657,12 @@ ALTER TABLE `lr_reviews`
   ADD KEY `active` (`published`,`lang`);
 
 --
+-- Индексы таблицы `lr_roles`
+--
+ALTER TABLE `lr_roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `lr_settings`
 --
 ALTER TABLE `lr_settings`
@@ -1469,13 +1694,6 @@ ALTER TABLE `lr_tree`
   ADD KEY `tree_lang_index` (`lang`);
 
 --
--- Индексы таблицы `lr_users`
---
-ALTER TABLE `lr_users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
 -- Индексы таблицы `lr_widgets`
 --
 ALTER TABLE `lr_widgets`
@@ -1487,6 +1705,11 @@ ALTER TABLE `lr_widgets`
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
+--
+-- AUTO_INCREMENT для таблицы `lr_admins`
+--
+ALTER TABLE `lr_admins`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `lr_blog`
 --
@@ -1518,6 +1741,21 @@ ALTER TABLE `lr_feedback`
 ALTER TABLE `lr_migrations`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT для таблицы `lr_modules`
+--
+ALTER TABLE `lr_modules`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT для таблицы `lr_permissions`
+--
+ALTER TABLE `lr_permissions`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT для таблицы `lr_permission_roles`
+--
+ALTER TABLE `lr_permission_roles`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+--
 -- AUTO_INCREMENT для таблицы `lr_portfolio`
 --
 ALTER TABLE `lr_portfolio`
@@ -1538,6 +1776,11 @@ ALTER TABLE `lr_portfolio_images`
 ALTER TABLE `lr_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
 --
+-- AUTO_INCREMENT для таблицы `lr_roles`
+--
+ALTER TABLE `lr_roles`
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT для таблицы `lr_settings`
 --
 ALTER TABLE `lr_settings`
@@ -1557,11 +1800,6 @@ ALTER TABLE `lr_tariffs_categories`
 --
 ALTER TABLE `lr_tree`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
---
--- AUTO_INCREMENT для таблицы `lr_users`
---
-ALTER TABLE `lr_users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT для таблицы `lr_widgets`
 --

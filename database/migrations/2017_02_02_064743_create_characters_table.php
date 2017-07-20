@@ -15,7 +15,7 @@ class CreateCharactersTable extends Migration
     {
         Schema::create('characters', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('lang', ['ru', 'en'])->index();
+            $table->enum('lang', ['ru', 'en', 'ky'])->index();
             $table->text('content');
             $table->string('name');
             $table->string('image');
@@ -31,6 +31,6 @@ class CreateCharactersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('characters');
+        Schema::dropIfExists('characters');
     }
 }

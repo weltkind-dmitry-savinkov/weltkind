@@ -1,5 +1,6 @@
 <?php
 return [
     'title'=>'Виджеты',
-    'localization'=>true
+    'localization'=>true,
+    'in_roles'  => 1
 ];

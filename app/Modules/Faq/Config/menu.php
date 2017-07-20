@@ -2,9 +2,13 @@
 return [
 
     'items' => [
-        ['icon' => 'fa-question','group'=>'modules', 'route' => 'admin.faq.index', 'title' => 'FAQ']
+        [
+            'icon' => 'fa-question',
+            'group'=>'modules',
+            'route' => 'admin.faq.index',
+            'title' => 'FAQ',
+            'slug'  => 'faq'
+        ]
     ]
-
-
 ];
 

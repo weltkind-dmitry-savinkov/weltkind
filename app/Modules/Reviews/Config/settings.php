@@ -2,5 +2,6 @@
 return [
 
     'title'=>'Отзывы',
-    'localization'=>true
+    'localization'=>true,
+    'in_roles'  => 1
 ];

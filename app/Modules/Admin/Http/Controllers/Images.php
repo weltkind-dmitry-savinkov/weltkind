@@ -7,17 +7,14 @@ use App\Facades\Uploader;
 use App\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 
-
 abstract class Images extends Controller
 {
-
     public $routePrefix = false;
     public $indexView = 'admin::images.index';
     public $configField = 'image';
 
     abstract public function getParentModel();
     abstract public function getModel();
-
 
     public function __construct()
     {
@@ -32,8 +29,6 @@ abstract class Images extends Controller
 
         }
     }
-
-
 
     public function index($id)
     {
@@ -103,6 +98,4 @@ abstract class Images extends Controller
             return $config[$this->configField];
         }
     }
-
-
 }

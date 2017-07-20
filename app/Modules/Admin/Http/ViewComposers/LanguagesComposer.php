@@ -6,23 +6,21 @@ use Caffeinated\Modules\Facades\Module;
 
 class LanguagesComposer
 {
-
-
     public function compose(View $view)
     {
 
-        if (action()!='index'){
+        if (action() != 'index') {
             return;
         }
 
         $config = module_config('settings');
 
-        if (empty($config)){
+        if (empty($config)) {
             return;
         }
 
 
-        if (isset($config['localization']) && $config['localization'] == true){
+        if (isset($config['localization']) && $config['localization'] == true) {
             $locales = localization()->getSupportedLocales();
             $view->with('supportedLocales', $locales);
         }

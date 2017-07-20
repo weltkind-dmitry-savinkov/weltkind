@@ -14,8 +14,10 @@
                     <div class="blog-widget__info">
                         <div class="info-small">
                             <time class="info-small__time" datetime="{{Date::_('Y-m-d', $entity->date)}}">{{Date::_('d.m.Y', $entity->date)}}</time>
-                            <span class="info-small__separator"> &mdash; </span>
-                            <a class="info-small__author" href="#">{{$entity->user->name}}</a>
+                            @if(isset($entity->user->name))
+                                <span class="info-small__separator"> &mdash; </span>
+                                <a class="info-small__author" href="#">{{$entity->user->name}}</a>
+                            @endif
                         </div>
                     </div>
                     <a class="blog-widget__title" href="{{route('blog.show', $entity)}}">{{$entity->title}}</a>
