@@ -4,8 +4,7 @@
         {!! $entity->content !!}
     </div>
     <div class="faq-layout__button">
-        <a class="button button_dark button_block call-feedback" href="{{ route('feedback.modal') }}">Заказать сайт</a>
-        <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
+        <a class="button button_dark button_block call-feedback" href="{{ route('feedback.modal') }}">@lang('index.order')</a>
     </div>
 </div>
 <div class="faq-layout__cartoon">
