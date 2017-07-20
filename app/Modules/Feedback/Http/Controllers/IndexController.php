@@ -20,7 +20,6 @@ class IndexController extends Controller
     public function modal()
     {
         return view('feedback::modal');
-        exit;
     }
 
     public function store(Request $request)
