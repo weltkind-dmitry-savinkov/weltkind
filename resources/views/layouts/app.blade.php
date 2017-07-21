@@ -83,9 +83,9 @@
                 <header class="header">
                     <div class="header__wrapper header__wrapper_full-md">
                         <div class="header__logo">
-                            @if (Request::is('/'))
+                            @if (Request::is('/') || Request::is('en'))
                                 <div class="logo">
-                                    <a class="logo__link" href="/"></a>
+                                    <a class="logo__link" href="/{{ lang() }}"></a>
 
                                     <div class="logo__image">
                                         <img src="/img/logo-main.png" alt="Веб-студия &quot;Weltkind&quot;">
@@ -93,12 +93,12 @@
                                 </div>
                             @else
                                 <div class="logo logo_animated">
-                                    <a class="logo__link" href="/"></a>
+                                    <a class="logo__link" href="/{{ lang() }}"></a>
 
                                     <div class="logo__image">
                                         <img src="/img/logo-main.png" alt="Веб-студия &quot;Weltkind&quot;">
                                     </div>
-                                    <div class="logo__text">Вернуться на главную
+                                    <div class="logo__text">@lang('index.back_to_main')
                                     </div>
                                 </div>
                             @endif
@@ -156,7 +156,7 @@
                             <div class="footer__left">
                                 <div class="footer__top">
                                     <div class="title-small">
-                                        <h2 class="title-small__title">Друзья:
+                                        <h2 class="title-small__title">@lang('index.friends'):
                                         </h2>
                                     </div>
                                 </div>
