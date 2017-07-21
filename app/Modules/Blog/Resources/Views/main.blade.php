@@ -3,9 +3,9 @@
         <div class="blog-widget__top">
             <div class="title-small">
                 <h2 class="title-small__title">
-                    <a href="{{route('blog')}}">Новое в блоге:</a>
+                    <a href="{{route('blog')}}">@lang('blog::index.new_records'):</a>
                 </h2>
-                <a class="title-small__link" href="{{route('blog')}}">список блогов</a>
+                <a class="title-small__link" href="{{route('blog')}}">@lang('blog::index.list')</a>
             </div>
         </div>
         <ul class="blog-widget__list">

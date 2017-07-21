@@ -26,7 +26,7 @@
     </div>
     <footer>
         <p>
-            <a href="{!! route('blog') !!}">&larr; Назад</a>
+            <a href="{!! route('blog') !!}">&larr; @lang('blog::index.back')</a>
         </p>
     </footer>
 </article>

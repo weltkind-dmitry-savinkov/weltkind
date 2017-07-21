@@ -25,6 +25,6 @@
         </ul>
         {{ $entities->appends(\Request::except('page'))->links('common.paginate') }}
     @else
-        <p>Нет записей</p>
+        <p>@lang('blog::index.no_records')</p>
     @endif
 @endsection
